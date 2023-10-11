@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './app.css';
+import { Layout } from 'antd';
+import SideNavigation from './components/SideNavigation';
+import { useEffect } from 'react';
+
+const { Sider } = Layout;
 
 function App() {
+  useEffect(() => {
+    // We can use resize DOM api to update app height on resizing screen
+    document.documentElement.style.cssText = `--app-height: ${window.innerHeight}px`;
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className='layout-styles'>
+      <Sider
+        className='sider-styles'
+        width={72}
+      >
+        <SideNavigation />
+      </Sider>
+    </Layout>
   );
 }
 
