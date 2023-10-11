@@ -1,0 +1,13 @@
+#sideNavbarContainer .ant-menu .ant-menu-item {
+  height: 48px;
+  width: 48px;
+  padding: 12px;
+  line-height: 40px;
+  margin: 0;
+  margin-top: 24px;
+  width: 100%;
+}
+
+#sideNavbarContainer .ant-menu .ant-menu-item-selected {
+  background-color: var(--bg-blue-light200);
+}
