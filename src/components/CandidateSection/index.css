@@ -1,0 +1,9 @@
+.candidate-table-container {
+  background-color: white;
+  padding: 16px;
+  padding-bottom: 0;
+}
+
+.candidate-table-container-divider {
+  margin-block: 0px;
+}
