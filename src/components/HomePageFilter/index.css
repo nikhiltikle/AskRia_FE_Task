@@ -1,0 +1,79 @@
+.input-container {
+  padding: 16px;
+  background-color: var(--bg-white-base);
+  border-radius: 8px;
+  border-color: var(--border-white-50);
+}
+
+.input-container:hover {
+  background-color: var(--bg-white-base);
+  border-color: var(--border-white-50);
+}
+
+#filter-menu .ant-card .ant-card-head {
+  padding: 18px 16px;
+  height: 58px;
+}
+
+#filter-menu .ant-card .ant-card-head .ant-card-head-title {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--foreground-black-500);
+}
+
+#filter-menu .ant-card .ant-card-head .ant-card-extra {
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 300;
+  color: var(--foreground-black-500);
+}
+
+#filter-menu .ant-card .ant-card-body {
+  padding: 0;
+}
+
+#filter-menu .ant-menu.ant-menu-root.ant-menu-inline {
+  border: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+#filter-menu .ant-menu .ant-menu-item-divider {
+  margin: 0;
+}
+
+#filter-menu .ant-menu .ant-menu-submenu .ant-menu-submenu-title {
+  margin: 0;
+  padding: 18px 16px;
+  padding-left: 16px !important;
+  border-radius: 0;
+  width: 100%;
+  height: 58px;
+  gap: 8px;
+}
+
+#filter-menu .ant-menu .ant-menu-submenu .ant-menu-submenu-title > svg {
+  height: 16px;
+  width: 16px;
+}
+
+#filter-menu
+  .ant-menu
+  .ant-menu-submenu
+  .ant-menu-submenu-title
+  > svg:last-child {
+  height: 18px;
+  width: 18px;
+}
+
+#filter-menu .ant-menu .ant-menu-submenu:last-child .ant-menu-submenu-title {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+#filter-menu .ant-menu-title-content {
+  line-height: 22px;
+  color: var(--foreground-black-500);
+  font-weight: 400;
+}
