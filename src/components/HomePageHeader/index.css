@@ -1,0 +1,4 @@
+#cta-button .ant-btn {
+  border-width: 0.5px;
+  border-color: var(--border-grey-50);
+}

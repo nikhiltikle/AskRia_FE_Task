@@ -6,9 +6,12 @@
   --bg-blue-light200: #e9efff;
   --bg-blue-light300: #edf2ff;
   --bg-blue-light400: #d1ddff;
+  --bg-blue-500: #1d5ecd;
   --foreground-blue-light: #b1cdfd;
   --foreground-blue-dark: #1d4ed8;
   --foreground-black-500: #0b0b0b;
+  --foreground-white: #ffffff;
+  --border-grey-50: #ececec;
 }
 
 * {

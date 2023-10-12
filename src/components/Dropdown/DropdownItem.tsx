@@ -14,7 +14,12 @@ const DropdownListItem = ({ text, count }: DropdownListItemProps) => {
       <Typography>{text}</Typography>
 
       <Tag
-        style={{ padding: '2px 10px', fontSize: '14px', fontWeight: 500 }}
+        style={{
+          padding: '2px 10px',
+          fontSize: '14px',
+          fontWeight: 500,
+          borderRadius: '16px',
+        }}
         bordered={false}
       >
         {count}

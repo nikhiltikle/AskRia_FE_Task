@@ -1,0 +1,16 @@
+#video-call-menu .ant-btn {
+  background-color: var(--bg-blue-500);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#video-call-menu .ant-btn::before {
+  background-color: var(--bg-white-base);
+}
+
+.dropdown-button-font {
+  color: var(--foreground-white);
+  font-size: 13px;
+  line-height: 22px;
+}

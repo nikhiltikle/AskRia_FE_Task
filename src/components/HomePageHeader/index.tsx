@@ -1,4 +1,6 @@
-import { Button, Col, Flex, Row, Typography } from 'antd';
+import './index.css';
+
+import { Button, Col, Divider, Flex, Row, Typography } from 'antd';
 import OpportunityDropDown from '../Dropdown';
 import VideoCallMenuItem from '../VideoCallMenuItem';
 import CpIcon from '../../icons/CpIcon';
@@ -13,16 +15,20 @@ const ctaButtons = [
     icon: CpIcon,
   },
   {
-    id: '1',
+    id: '2',
     icon: UserIcon,
   },
   {
-    id: '1',
+    id: '3',
     icon: UserCheck,
   },
   {
-    id: '1',
+    id: '4',
     icon: UserVoice,
+  },
+  {
+    id: '5',
+    icon: MailIcon,
   },
 ];
 
@@ -52,32 +58,28 @@ export default function HomePageHeader() {
         >
           <OpportunityDropDown />
 
-          <Flex>
+          <Flex align='center'>
             <Flex
+              id='cta-button'
               gap='8px'
               align='center'
             >
-              <Button
-                size='large'
-                icon={<CpIcon />}
-              />
-              <Button
-                size='large'
-                icon={<UserIcon />}
-              />
-              <Button
-                size='large'
-                icon={<UserCheck />}
-              />
-              <Button
-                size='large'
-                icon={<UserVoice />}
-              />
-              <Button
-                size='large'
-                icon={<MailIcon />}
-              />
+              {ctaButtons.map((button) => {
+                const Icon = button.icon;
+                return (
+                  <Button
+                    key={button.id}
+                    size='large'
+                    icon={<Icon />}
+                  />
+                );
+              })}
             </Flex>
+
+            <Divider
+              type='vertical'
+              style={{ height: '24px' }}
+            />
             <VideoCallMenuItem />
           </Flex>
         </Flex>
