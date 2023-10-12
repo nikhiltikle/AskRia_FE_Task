@@ -1,0 +1,8 @@
+.input-container {
+  padding: 16px;
+  background-color: white;
+}
+
+.input-container:hover {
+  background-color: white;
+}
