@@ -1,0 +1,57 @@
+.candidate-avatar-container {
+  background-color: #edf4ff;
+  border-radius: 50%;
+  width: 85px;
+  height: 65px;
+}
+
+.candidate-avatart-text {
+  color: #d0e1ff;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.candidate-card-container {
+  padding-block: 16px;
+}
+
+.candidate-card-divider {
+  margin: 0px !important;
+}
+
+.candidate-content-container {
+  width: 100%;
+}
+
+.candidate-card-buttons-container {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.candidate-card-buttons-container > .ant-tag {
+  display: flex;
+  align-items: center;
+  color: #1d4ed8 !important;
+  height: 25px;
+  border-radius: 16px;
+  color: #1d4ed8;
+  font-family: Poppins;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.candidate-card-buttons-container svg {
+  height: 14px;
+  width: 14px;
+  stroke: #1d4ed8 !important;
+  margin-right: 8px;
+}
+
+.checkbox-candidate-card-container {
+  flex-grow: 2;
+}
