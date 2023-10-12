@@ -1,9 +1,14 @@
 :root {
   --app-height: 100%;
   --bg-white-base: #fff;
+  --bg-blue-light50: #f9faff;
   --bg-blue-light: #d7e5fd;
   --bg-blue-light200: #e9efff;
+  --bg-blue-light300: #edf2ff;
+  --bg-blue-light400: #d1ddff;
   --foreground-blue-light: #b1cdfd;
+  --foreground-blue-dark: #1d4ed8;
+  --foreground-black-500: #0b0b0b;
 }
 
 * {

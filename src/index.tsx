@@ -13,15 +13,12 @@ root.render(
     <ConfigProvider
       theme={{
         token: {
-          paddingXXS: 10,
-          colorPrimary: '#1D5ECD',
+          fontFamily: 'Poppins, sans-serif',
         },
+
         components: {
           Input: {
             padding: 16,
-          },
-          Typography: {
-            fontFamily: 'Poppins, sans-serif',
           },
         },
       }}

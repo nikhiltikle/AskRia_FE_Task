@@ -2,8 +2,9 @@ import './app.css';
 import { Layout } from 'antd';
 import SideNavigation from './components/SideNavigation';
 import { useEffect } from 'react';
+import HomePageHeader from './components/HomePageHeader';
 
-const { Sider } = Layout;
+const { Sider, Content } = Layout;
 
 function App() {
   useEffect(() => {
@@ -19,6 +20,15 @@ function App() {
       >
         <SideNavigation />
       </Sider>
+
+      <Content
+        style={{
+          padding: '32px 36px 32px 32px',
+          backgroundColor: 'var(--bg-blue-light50)',
+        }}
+      >
+        <HomePageHeader />
+      </Content>
     </Layout>
   );
 }

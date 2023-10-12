@@ -1,0 +1,66 @@
+.dropdown-container {
+  background-color: var(--bg-white-base);
+  padding: 8px 16px;
+  min-width: 321px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.dropdown-text {
+  color: var(--foreground-blue-dark);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.ant-dropdown-open {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.ant-dropdown .ant-dropdown-menu {
+  padding: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  background: #fff;
+  box-shadow: 0px 4px 25px 0px rgba(29, 78, 216, 0.05);
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+  padding: 8px 16px;
+  min-height: 72px;
+  color: var(--foreground-black-500);
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:last-child,
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover:last-child {
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item-divider {
+  margin: 0;
+}
+
+.ant-dropdown .ant-typography {
+  color: inherit;
+  font-size: 16px;
+  border-radius: 16px;
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover {
+  background-color: var(--bg-blue-light300);
+  color: var(--foreground-blue-dark);
+  border-radius: 0;
+}
+
+.ant-dropdown .ant-dropdown-menu-item:hover span.ant-tag {
+  color: var(--foreground-blue-dark);
+  background-color: var(--bg-blue-light400);
+}
+
+.ant-dropdown .tag-text {
+  border-radius: 16px;
+}
