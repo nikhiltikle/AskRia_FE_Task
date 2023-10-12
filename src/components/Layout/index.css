@@ -1,0 +1,22 @@
+.layout2-slider-style {
+  height: 100%;
+  border-right: 0;
+}
+
+.layout-style {
+  padding: 24px;
+}
+
+.layout-content {
+  display: flex;
+  flex-direction: column;
+  padding: 24;
+  margin: 0;
+  min-height: 280;
+  background: var(--colorBgContainer);
+  gap: 32;
+}
+
+.layout2-container {
+  height: 100%;
+}
