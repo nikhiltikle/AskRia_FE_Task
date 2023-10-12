@@ -1,0 +1,10 @@
+#form-card.ant-card {
+  border-width: 0;
+  box-shadow: 3px 3px 14px 0px rgba(190, 190, 190, 0.3);
+}
+
+#form-card .ant-card-head {
+  background-color: var(--bg-sky-blue-200);
+  border-width: 0;
+  text-align: left;
+}
