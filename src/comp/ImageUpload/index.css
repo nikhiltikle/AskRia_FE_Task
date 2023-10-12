@@ -1,0 +1,17 @@
+#image-upload .ant-upload-wrapper .ant-upload {
+  width: auto;
+  height: auto;
+}
+
+.image-upload-styles {
+  width: 100%;
+}
+
+.image-upload-container {
+  width: 512px;
+  height: 210px;
+}
+
+.image-upload-text {
+  font-weight: bold;
+}
