@@ -1,0 +1,81 @@
+.action-button-container {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.action-button-delete-style {
+  display: inline-flex;
+  align-items: center;
+  color: #a80000;
+}
+
+.action-button-save-style {
+  background-color: #087b2f;
+  color: var(----bg-white-base);
+}
+
+.question-form-container {
+  margin-top: 50px;
+}
+
+.question-form-plus-button {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.open-form-select-style {
+  width: 100%;
+}
+
+.question-type-checkbox-style {
+  margin-top: 24px;
+}
+
+.question-type-title-style {
+  padding-left: 32px;
+}
+
+.question-choices-container {
+  width: 100%;
+}
+
+.choice-index-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choicebox-other-button {
+  margin-top: 24px;
+}
+
+.choice-text-style {
+  padding-left: 32px;
+}
+
+.question-choice-full-width {
+  width: 100%;
+}
+
+.question-choice-plus-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-other-style {
+  margin-top: 24px;
+}
+
+.questiontype-video-container {
+  width: 100%;
+}
+
+.questiontype-video-row {
+  width: 100%;
+}
+
+.questiontype-video-select-container {
+  width: 100%;
+}
