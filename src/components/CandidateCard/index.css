@@ -1,0 +1,55 @@
+.candidate-heading {
+  font-size: 14px !important;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0px !important;
+}
+
+.candidate-subheading {
+  color: #000;
+  font-family: Poppins;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0px !important;
+}
+
+.candidate-education {
+  color: #000;
+  font-size: 10px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 0px !important;
+}
+
+.candidate-hashTags {
+  color: #1d4ed8;
+  font-family: Poppins;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.candidate-placement-tag-container > .ant-tag {
+  display: flex;
+  align-items: center;
+}
+
+.candidate-placement-tag {
+  height: 12px;
+  border-radius: 16px;
+}
+.candidate-placement-tag-text {
+  color: #037092;
+  font-family: Poppins;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
