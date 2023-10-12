@@ -1,0 +1,48 @@
+.candidate-table-header-title {
+  color: #1d4ed8 !important;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+  padding-left: 32px;
+  margin: 0px !important;
+}
+
+.candidate-table-header-subtitle {
+  color: #1d4ed8;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  margin: 0px !important;
+}
+
+.candidate-table-subheading {
+  color: #0b0b0b;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.candidate-table-header-container {
+  padding-block: 14px;
+}
+
+.candidate-badge {
+  padding-block: 1px;
+  padding-inline: 6px;
+  height: 25px;
+  width: 25px;
+  border-radius: 40px;
+  background: #f7f8fd;
+  color: #22215b;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+}
