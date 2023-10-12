@@ -1,0 +1,7 @@
+.filter-candidate-container {
+  padding-inline: 36px;
+}
+
+#filter-candidate .ant-col {
+  padding: 0px !important;
+}

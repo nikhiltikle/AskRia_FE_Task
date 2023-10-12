@@ -10,8 +10,8 @@ export default function ToggleIcon() {
       <path
         d='M14 16L10 12L14 8'
         stroke='#0B0B0B'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );
