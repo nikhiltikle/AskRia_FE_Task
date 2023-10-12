@@ -11,3 +11,24 @@
 #sideNavbarContainer .ant-menu .ant-menu-item-selected {
   background-color: var(--bg-blue-light200);
 }
+
+.user-items-avatar {
+  border: none;
+  display: block;
+  background-color: var(--bg-blue-light);
+  color: var(--foreground-blue-light);
+  font-size: 14;
+  line-height: auto;
+}
+
+.side-navbar-container-style {
+  height: var(--app-height);
+  padding: 12px;
+  padding-block: 24px;
+}
+
+.side-navbar-menuitem-styles {
+  min-width: 0;
+  flex: auto;
+  border: none !important;
+}

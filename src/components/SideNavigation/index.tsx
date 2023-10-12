@@ -18,17 +18,7 @@ const userItems: MenuProps['items'] = [
   getMenuItem('1', <SettingsIcon />),
   getMenuItem(
     '2',
-    <Avatar
-      size='small'
-      style={{
-        border: 'none',
-        display: 'block',
-        backgroundColor: 'var(--bg-blue-light)',
-        color: 'var(--foreground-blue-light)',
-        fontSize: 14,
-        lineHeight: 'auto',
-      }}
-    >
+    <Avatar size='small' className='user-items-avatar'>
       AS
     </Avatar>
   ),
@@ -57,33 +47,22 @@ export default function SideNavigation() {
       gap='middle'
       align='center'
       justify='space-between'
-      style={{
-        height: 'var(--app-height)',
-        padding: '12px',
-        paddingBlock: '24px',
-      }}
+      className='side-navbar-container-style'
     >
-      <Flex
-        vertical
-        align='center'
-        gap='32px'
-      >
+      <Flex vertical align='center' gap='32px'>
         <AvatarIcon />
         <Menu
           onClick={onClick}
           items={navigationItems}
-          style={{ minWidth: 0, flex: 'auto', border: 'none' }}
+          className='side-navbar-menuitem-styles'
         />
       </Flex>
 
-      <Flex
-        vertical
-        gap='24px'
-      >
+      <Flex vertical gap='24px'>
         <Menu
           onClick={onClick}
           items={userItems}
-          style={{ minWidth: 0, flex: 'auto', border: 'none' }}
+          className='side-navbar-menuitem-styles'
         />
       </Flex>
     </Flex>
