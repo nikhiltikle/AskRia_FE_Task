@@ -18,23 +18,28 @@ export default function CandidateCard({
   buttonText,
 }: CandidateCardProps) {
   return (
-    <Flex vertical gap='small' align='start'>
-      <Typography.Title className='candidate-heading' level={5}>
-        {heading}
-      </Typography.Title>
-      <Typography.Text className='candidate-subheading'>
-        {subHeading}
-      </Typography.Text>
-      <Typography.Text className='candidate-education'>
-        {education}
-      </Typography.Text>
+    <Flex
+      vertical
+      gap='small'
+      align='start'
+    >
+      <Typography className='candidate-heading'>{heading}</Typography>
+      <Typography className='candidate-subheading'>{subHeading}</Typography>
+      <Typography className='candidate-education'>{education}</Typography>
 
-      <Flex align='start' gap='small' className='candidate-hashTags-container'>
+      <Flex
+        align='start'
+        gap='small'
+        className='candidate-hashTags-container'
+      >
         {hashTags.map((hashTag: string) => {
           return (
-            <Typography.Text key={hashTag} className='candidate-hashTags'>
+            <Typography
+              key={hashTag}
+              className='candidate-hashTags'
+            >
               {hashTag}
-            </Typography.Text>
+            </Typography>
           );
         })}
       </Flex>
@@ -42,7 +47,7 @@ export default function CandidateCard({
       <Flex
         justify='center'
         align='center'
-        gap={10}
+        gap={'8px'}
         className='candidate-placement-tag-container '
       >
         {buttonText.map((text: string) => {
@@ -53,9 +58,9 @@ export default function CandidateCard({
               color='cyan'
               key={text}
             >
-              <Typography.Text className='candidate-placement-tag-text'>
+              <Typography className='candidate-placement-tag-text'>
                 {text}
-              </Typography.Text>
+              </Typography>
             </Tag>
           );
         })}

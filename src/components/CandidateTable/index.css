@@ -1,15 +1,10 @@
 .candidate-avatar-container {
   background-color: #edf4ff;
-  border-radius: 50%;
-  width: 85px;
-  height: 65px;
-}
-
-.candidate-avatart-text {
+  border-radius: 100px;
+  min-width: 56px;
+  height: 56px;
   color: #d0e1ff;
-  font-family: Poppins;
   font-size: 20px;
-  font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
@@ -19,7 +14,7 @@
 }
 
 .candidate-card-divider {
-  margin: 0px !important;
+  margin: 4px !important;
 }
 
 .candidate-content-container {
@@ -27,29 +22,34 @@
 }
 
 .candidate-card-buttons-container {
-  width: 100%;
   flex-grow: 1;
 }
 
 .candidate-card-buttons-container > .ant-tag {
+  padding: 4px 8px;
+  gap: 4px;
+  margin-right: 0;
+  border: none;
   display: flex;
   align-items: center;
   color: #1d4ed8 !important;
-  height: 25px;
+  height: 23px;
   border-radius: 16px;
   color: #1d4ed8;
-  font-family: Poppins;
   font-size: 10px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 7px;
+}
+
+.candidate-card-buttons-container #programs.ant-tag {
+  padding: 4px 16px;
+  gap: 8px;
 }
 
 .candidate-card-buttons-container svg {
   height: 14px;
   width: 14px;
   stroke: #1d4ed8 !important;
-  margin-right: 8px;
 }
 
 .checkbox-candidate-card-container {

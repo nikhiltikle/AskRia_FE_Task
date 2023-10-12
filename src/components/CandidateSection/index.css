@@ -1,9 +1,10 @@
 .candidate-table-container {
-  background-color: white;
-  padding: 16px;
-  padding-bottom: 0;
+  background-color: var(--bg-white-base);
+  padding: 8px 16px 0 16px;
+  border-radius: 16px;
+  gap: 4px;
 }
 
 .candidate-table-container-divider {
-  margin-block: 0px;
+  margin-block: 4px;
 }

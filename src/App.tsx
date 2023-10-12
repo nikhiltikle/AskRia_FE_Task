@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   return (
-    <Layout>
+    <Layout className='layout-container'>
       <Sider width={72}>
         <SideNavigation />
       </Sider>

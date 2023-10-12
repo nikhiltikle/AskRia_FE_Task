@@ -1,3 +1,7 @@
 .ant-layout .ant-layout-sider {
   background: var(--bg-white-base);
 }
+
+.layout-container {
+  height: 100%;
+}

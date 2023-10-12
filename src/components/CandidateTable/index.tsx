@@ -1,9 +1,9 @@
 import './index.css';
 
-import { Divider, Flex, Tag, Typography } from 'antd';
+import { Divider, Flex, Tag } from 'antd';
 import React from 'react';
 import Docucments from '../../icons/Documents';
-import PlayCircleIcon from '../../icons/PlayCircleIcon';
+import PlayCircleIcon from '../../assets/icons/Play_Circle.png';
 import CandidateCard from '../CandidateCard';
 import TableCheckbox from '../CheckBox';
 
@@ -63,64 +63,78 @@ const CandidateData: CandidateDataProps[] = [
 export default function CandidateTable() {
   return (
     <>
-      {CandidateData.map((data, index) => {
-        return (
-          <React.Fragment key={data.id}>
-            <Flex gap={4} className='candidate-card-container'>
+      {CandidateData.map((data, index) => (
+        <React.Fragment key={data.id}>
+          <Flex
+            gap={4}
+            justify='space-between'
+            className='candidate-card-container'
+          >
+            <Flex
+              align='center'
+              gap='middle'
+              className='checkbox-candidate-card-container'
+            >
+              <TableCheckbox />
               <Flex
+                gap='large'
                 align='center'
-                gap='middle'
-                className='checkbox-candidate-card-container'
+                className='candidate-content-avatar'
               >
-                <TableCheckbox />
                 <Flex
-                  gap='large'
                   align='center'
-                  className='candidate-content-avatar'
+                  justify='center'
+                  className='candidate-avatar-container'
                 >
-                  <Flex
-                    align='center'
-                    justify='center'
-                    className='candidate-avatar-container'
-                  >
-                    <Typography className='candidate-avatart-text'>
-                      AS
-                    </Typography>
-                  </Flex>
-
-                  <div className='candidate-content-container'>
-                    <CandidateCard
-                      heading={data.heading}
-                      subHeading={data.subHeading}
-                      education={data.education}
-                      hashTags={data.hashTags}
-                      buttonText={data.buttonText}
-                    />
-                  </div>
+                  AS
                 </Flex>
+
+                <div className='candidate-content-container'>
+                  <CandidateCard
+                    heading={data.heading}
+                    subHeading={data.subHeading}
+                    education={data.education}
+                    hashTags={data.hashTags}
+                    buttonText={data.buttonText}
+                  />
+                </div>
               </Flex>
-
-              {data.buttons && (
-                <Flex
-                  gap='middle'
-                  justify='end'
-                  className='candidate-card-buttons-container'
-                >
-                  <Tag color='#E3EBFF' icon={<PlayCircleIcon />}>
-                    4
-                  </Tag>
-                  <Tag icon={<Docucments />} color='#E3EBFF'>
-                    5 Programs
-                  </Tag>
-                </Flex>
-              )}
             </Flex>
-            {CandidateData.length - 1 !== index && (
-              <Divider className='candidate-card-divider' />
+
+            {data.buttons && (
+              <Flex
+                gap='8px'
+                justify='end'
+                className='candidate-card-buttons-container'
+              >
+                <Tag
+                  color='#E3EBFF'
+                  bordered={false}
+                  icon={
+                    <img
+                      src={PlayCircleIcon}
+                      alt='Media'
+                    />
+                  }
+                >
+                  4
+                </Tag>
+                <Tag
+                  id='programs'
+                  bordered={false}
+                  icon={<Docucments />}
+                  color='#E3EBFF'
+                >
+                  5 Programs
+                </Tag>
+              </Flex>
             )}
-          </React.Fragment>
-        );
-      })}
+          </Flex>
+          {CandidateData.length - 1 !== index && (
+            <Divider className='candidate-card-divider' />
+          )}
+        </React.Fragment>
+      ))}
     </>
   );
 }
