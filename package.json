@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@stoplight/prism-cli": "^5.4.0",
     "@types/node": "16.18.58",
     "@types/react": "18.2.27",
     "@types/react-dom": "18.2.12",
@@ -16,7 +17,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "run:prism": "prism mock -d APIFile.yaml"
   },
   "eslintConfig": {
     "extends": [
