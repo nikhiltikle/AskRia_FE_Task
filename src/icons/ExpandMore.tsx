@@ -1,4 +1,4 @@
-export default function ExpandMore() {
+const ExpandMore = () => {
   return (
     <svg
       width='16'
@@ -21,4 +21,5 @@ export default function ExpandMore() {
       </defs>
     </svg>
   );
-}
+};
+export default ExpandMore;

@@ -1,4 +1,4 @@
-export default function UserCheck() {
+const UserCheck = () => {
   return (
     <svg
       width='24'
@@ -19,4 +19,5 @@ export default function UserCheck() {
       </g>
     </svg>
   );
-}
+};
+export default UserCheck;

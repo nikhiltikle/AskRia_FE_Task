@@ -10,34 +10,23 @@ interface CandidateCardProps {
   buttonText: string[];
 }
 
-export default function CandidateCard({
+const CandidateCard = ({
   heading,
   subHeading,
   education,
   hashTags,
   buttonText,
-}: CandidateCardProps) {
+}: CandidateCardProps) => {
   return (
-    <Flex
-      vertical
-      gap='small'
-      align='start'
-    >
+    <Flex vertical gap='small' align='start'>
       <Typography className='candidate-heading'>{heading}</Typography>
       <Typography className='candidate-subheading'>{subHeading}</Typography>
       <Typography className='candidate-education'>{education}</Typography>
 
-      <Flex
-        align='start'
-        gap='small'
-        className='candidate-hashTags-container'
-      >
+      <Flex align='start' gap='small' className='candidate-hashTags-container'>
         {hashTags.map((hashTag: string) => {
           return (
-            <Typography
-              key={hashTag}
-              className='candidate-hashTags'
-            >
+            <Typography key={hashTag} className='candidate-hashTags'>
               {hashTag}
             </Typography>
           );
@@ -67,4 +56,6 @@ export default function CandidateCard({
       </Flex>
     </Flex>
   );
-}
+};
+
+export default CandidateCard;

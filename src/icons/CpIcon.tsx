@@ -1,4 +1,4 @@
-export default function CpIcon() {
+const CpIcon = () => {
   return (
     <svg
       width='24'
@@ -31,4 +31,6 @@ export default function CpIcon() {
       </g>
     </svg>
   );
-}
+};
+
+export default CpIcon;

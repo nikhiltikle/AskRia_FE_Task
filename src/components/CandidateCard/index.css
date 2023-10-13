@@ -4,19 +4,19 @@
 }
 
 .candidate-subheading {
-  color: #000;
+  color: var(--bg-black);
   font-size: 10px;
   font-weight: 500;
 }
 
 .candidate-education {
-  color: #000;
+  color: var(--bg-black);
   font-size: 10px;
   font-weight: 300;
 }
 
 .candidate-hashTags {
-  color: #1d4ed8;
+  color: var(--foreground-blue-dark);
   font-size: 8px;
   font-weight: 400;
 }
@@ -34,8 +34,7 @@
   border-radius: 16px;
 }
 .candidate-placement-tag-text {
-  color: #037092;
+  color: var(--foreground-cayan);
   font-size: 8px;
   font-weight: 500;
-  line-height: 16px;
 }

@@ -1,4 +1,4 @@
-export default function DownArrow() {
+const DownArrow = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -16,4 +16,5 @@ export default function DownArrow() {
       />
     </svg>
   );
-}
+};
+export default DownArrow;

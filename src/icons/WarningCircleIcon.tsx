@@ -1,4 +1,4 @@
-export default function WarningCircleIcon() {
+const WarningCircleIcon = () => {
   return (
     <svg
       width='20'
@@ -16,4 +16,6 @@ export default function WarningCircleIcon() {
       </g>
     </svg>
   );
-}
+};
+
+export default WarningCircleIcon;

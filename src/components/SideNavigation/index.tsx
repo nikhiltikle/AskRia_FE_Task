@@ -35,7 +35,7 @@ const navigationItems: MenuProps['items'] = [
   getMenuItem('9', <ToggleIcon />),
 ];
 
-export default function SideNavigation() {
+const SideNavigation = () => {
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
   };
@@ -67,4 +67,6 @@ export default function SideNavigation() {
       </Flex>
     </Flex>
   );
-}
+};
+
+export default SideNavigation;

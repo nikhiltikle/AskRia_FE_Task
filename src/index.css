@@ -8,12 +8,18 @@
   --bg-blue-light200: #e9efff;
   --bg-blue-light300: #edf2ff;
   --bg-blue-light400: #d1ddff;
+  --bg-blue-light500: #edf4ff;
+  --bg-blue-light600: #d0e1ff;
+  --bg-black: #000;
   --bg-blue-500: #1d5ecd;
   --bg-sky-blue-200: #d0f7fa;
+  --bg-green-dark: #087b2f;
   --foreground-blue-light: #b1cdfd;
   --foreground-blue-dark: #1d4ed8;
+  --foreground-cayan: #037092;
   --foreground-navy-blue-500: #22215b;
   --foreground-black-500: #0b0b0b;
+  --foreground-red-dark: #a80000;
   --foreground-white: #ffffff;
   --border-grey-50: #ececec;
   --border-white-50: #f3f3f3;

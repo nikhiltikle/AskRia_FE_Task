@@ -1,4 +1,4 @@
-export default function ScheduleIcon() {
+const ScheduleIcon = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -13,4 +13,6 @@ export default function ScheduleIcon() {
       />
     </svg>
   );
-}
+};
+
+export default ScheduleIcon;

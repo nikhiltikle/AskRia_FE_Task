@@ -32,14 +32,11 @@ const ctaButtons = [
   },
 ];
 
-export default function HomePageHeader() {
+const HomePageHeader = () => {
   return (
     <Row gutter={32}>
       <Col span={7}>
-        <Flex
-          vertical
-          gap='8px'
-        >
+        <Flex vertical gap='8px'>
           <Typography.Title
             level={4}
             style={{ margin: 0, color: 'var(--foreground-blue-dark)' }}
@@ -52,38 +49,24 @@ export default function HomePageHeader() {
       </Col>
 
       <Col span={17}>
-        <Flex
-          gap='middle'
-          justify='space-between'
-        >
+        <Flex gap='middle' justify='space-between'>
           <OpportunityDropDown />
 
           <Flex align='center'>
-            <Flex
-              id='cta-button'
-              gap='8px'
-              align='center'
-            >
+            <Flex id='cta-button' gap='8px' align='center'>
               {ctaButtons.map((button) => {
                 const Icon = button.icon;
-                return (
-                  <Button
-                    key={button.id}
-                    size='large'
-                    icon={<Icon />}
-                  />
-                );
+                return <Button key={button.id} size='large' icon={<Icon />} />;
               })}
             </Flex>
 
-            <Divider
-              type='vertical'
-              style={{ height: '24px' }}
-            />
+            <Divider type='vertical' style={{ height: '24px' }} />
             <VideoCallMenuItem />
           </Flex>
         </Flex>
       </Col>
     </Row>
   );
-}
+};
+
+export default HomePageHeader;

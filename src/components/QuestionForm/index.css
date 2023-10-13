@@ -6,11 +6,11 @@
 .action-button-delete-style {
   display: inline-flex;
   align-items: center;
-  color: #a80000;
+  color: var(--foreground-red-dark);
 }
 
 .action-button-save-style {
-  background-color: #087b2f;
+  background-color: var(--bg-green-dark);
   color: var(----bg-white-base);
 }
 

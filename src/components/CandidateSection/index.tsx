@@ -4,7 +4,7 @@ import { Divider } from 'antd';
 import CandidateTableHeader from '../CandidateTableHeader';
 import CandidateTable from '../CandidateTable';
 
-export default function CandidateSection() {
+const CandidateSection = () => {
   return (
     <div className='candidate-table-container'>
       <CandidateTableHeader />
@@ -12,4 +12,6 @@ export default function CandidateSection() {
       <CandidateTable />
     </div>
   );
-}
+};
+
+export default CandidateSection;

@@ -1,4 +1,4 @@
-export default function ToggleIcon() {
+const ToggleIcon = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -15,4 +15,5 @@ export default function ToggleIcon() {
       />
     </svg>
   );
-}
+};
+export default ToggleIcon;

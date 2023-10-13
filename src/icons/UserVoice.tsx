@@ -1,4 +1,4 @@
-export default function UserVoice() {
+const UserVoice = () => {
   return (
     <svg
       width='24'
@@ -19,4 +19,5 @@ export default function UserVoice() {
       </g>
     </svg>
   );
-}
+};
+export default UserVoice;

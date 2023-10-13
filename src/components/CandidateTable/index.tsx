@@ -60,7 +60,7 @@ const CandidateData: CandidateDataProps[] = [
   },
 ];
 
-export default function CandidateTable() {
+const CandidateTable = () => {
   return (
     <>
       {CandidateData.map((data, index) => (
@@ -110,12 +110,7 @@ export default function CandidateTable() {
                 <Tag
                   color='#E3EBFF'
                   bordered={false}
-                  icon={
-                    <img
-                      src={PlayCircleIcon}
-                      alt='Media'
-                    />
-                  }
+                  icon={<img src={PlayCircleIcon} alt='Media' />}
                 >
                   4
                 </Tag>
@@ -137,4 +132,6 @@ export default function CandidateTable() {
       ))}
     </>
   );
-}
+};
+
+export default CandidateTable;

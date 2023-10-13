@@ -30,17 +30,13 @@ const filterItems: MenuProps['items'] = [
   ]),
 ];
 
-export default function HomePageFilter() {
+const HomePageFilter = () => {
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
   };
 
   return (
-    <Flex
-      id='filter-menu'
-      gap={'large'}
-      vertical
-    >
+    <Flex id='filter-menu' gap={'large'} vertical>
       <Input
         className='input-container'
         placeholder={'Serach by name, edu, exp or #tag'}
@@ -49,11 +45,7 @@ export default function HomePageFilter() {
         suffix={<WarningCircleIcon />}
       />
 
-      <Card
-        title='Filters'
-        extra='0 Selected'
-        bordered={false}
-      >
+      <Card title='Filters' extra='0 Selected' bordered={false}>
         <Menu
           onClick={onClick}
           mode='inline'
@@ -63,4 +55,6 @@ export default function HomePageFilter() {
       </Card>
     </Flex>
   );
-}
+};
+
+export default HomePageFilter;

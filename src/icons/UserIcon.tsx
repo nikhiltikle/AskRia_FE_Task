@@ -1,4 +1,4 @@
-export default function UserIcon() {
+const UserIcon = () => {
   return (
     <svg
       width='24'
@@ -19,4 +19,6 @@ export default function UserIcon() {
       </g>
     </svg>
   );
-}
+};
+
+export default UserIcon;

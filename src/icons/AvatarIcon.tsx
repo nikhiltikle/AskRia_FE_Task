@@ -1,4 +1,4 @@
-export default function AvatarIcon() {
+const AvatarIcon = () => {
   return (
     <svg
       width='32'
@@ -10,4 +10,6 @@ export default function AvatarIcon() {
       <circle cx='16' cy='16' r='16' fill='#D9D9D9' />
     </svg>
   );
-}
+};
+
+export default AvatarIcon;
