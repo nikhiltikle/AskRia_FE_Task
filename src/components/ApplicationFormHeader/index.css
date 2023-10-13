@@ -27,3 +27,17 @@
   top: 25px;
   right: -15px;
 }
+
+.ant-steps .ant-steps-item {
+  flex: 1 1 40%;
+  max-width: calc(100% / 4);
+}
+
+.ant-steps
+  .ant-steps-item-container
+  .ant-steps-item-content
+  .ant-steps-item-title::after {
+  display: none;
+  position: relative;
+  width: 0;
+}
