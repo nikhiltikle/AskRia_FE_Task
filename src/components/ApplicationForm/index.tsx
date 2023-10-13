@@ -7,6 +7,7 @@ import ProfileInformation from '../ProfileInformation';
 import { useApplicationFormContext } from '../../context/applicationForm';
 import { useEffect } from 'react';
 import { ApplicationFormState } from '../../interfaces/applicationForm';
+import AdditionalQuestions from '../AdditionalQuestions';
 
 interface FormProps {}
 
@@ -44,10 +45,9 @@ const ApplicationForm: React.FC<FormProps> = () => {
         label='Upload cover image'
         value={coverImage}
       />
-
       <PersonalInformation />
-
       <ProfileInformation />
+      <AdditionalQuestions />
     </Flex>
   );
 };
