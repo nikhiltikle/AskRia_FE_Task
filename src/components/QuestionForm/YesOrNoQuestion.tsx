@@ -6,17 +6,17 @@ import { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 interface YesOrNoQuestionProps {
   question: Question;
-  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleDeleteQuestion: () => void;
-  handleSaveQuestion: () => void;
-  handleCheckboxChange: (event: CheckboxChangeEvent) => void;
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onDeleteQuestion: () => void;
+  onSaveQuestion: () => void;
+  onCheckboxChange: (event: CheckboxChangeEvent) => void;
 }
 
 const YesOrNoQuestion: FC<YesOrNoQuestionProps> = ({
-  handleDeleteQuestion,
-  handleInputChange,
-  handleSaveQuestion,
-  handleCheckboxChange,
+  onDeleteQuestion,
+  onInputChange,
+  onSaveQuestion,
+  onCheckboxChange,
   question,
 }) => {
   return (
@@ -27,19 +27,19 @@ const YesOrNoQuestion: FC<YesOrNoQuestionProps> = ({
         name='question'
         placeholder='Type here'
         size='large'
-        onChange={handleInputChange}
+        onChange={onInputChange}
       />
       <Checkbox
         name='disqualify'
         checked={question.disqualify}
-        onChange={handleCheckboxChange}
+        onChange={onCheckboxChange}
         className='question-type-checkbox-style'
       >
         Disqualify candidate if the answer is no
       </Checkbox>
       <ActionButton
-        onDelete={handleDeleteQuestion}
-        onSave={handleSaveQuestion}
+        onDelete={onDeleteQuestion}
+        onSave={onSaveQuestion}
       />
     </>
   );

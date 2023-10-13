@@ -1,29 +1,39 @@
 import { FC } from 'react';
-import { Question, VideoDurationType } from '../../interfaces/applicationForm';
-import { Col, Flex, Input, Row, Select, Typography } from 'antd';
+import {
+  Question,
+  QuestionAdditionalInfo,
+  VideoDurationType,
+} from '../../interfaces/applicationForm';
+import { Col, Flex, Input, InputNumber, Row, Select, Typography } from 'antd';
 import ActionButton from './ActionButton';
 import { videoDurationType } from './constants';
 
 interface VideoQuestionProps {
   question: Question;
-  handleInputChange: (
+  onInputChange: (
     event: React.ChangeEvent<HTMLInputElement>,
     isAdditionalInfo?: boolean
   ) => void;
-  handleDeleteQuestion: () => void;
-  handleSaveQuestion: () => void;
-  handleSelectChange: (
+  onDeleteQuestion: () => void;
+  onSaveQuestion: () => void;
+  onSelectChange: (
     name: string,
     value: VideoDurationType,
     isAdditionalInfo?: boolean
   ) => void;
+  onNumberInputChange: (
+    name: keyof Question | keyof QuestionAdditionalInfo,
+    value: number,
+    isAdditionalInfo: boolean
+  ) => void;
 }
 
 const VideoQuestion: FC<VideoQuestionProps> = ({
-  handleDeleteQuestion,
-  handleInputChange,
-  handleSaveQuestion,
-  handleSelectChange,
+  onDeleteQuestion,
+  onInputChange,
+  onSaveQuestion,
+  onSelectChange,
+  onNumberInputChange,
   question,
 }) => {
   return (
@@ -39,7 +49,7 @@ const VideoQuestion: FC<VideoQuestionProps> = ({
           name='question'
           placeholder='Type here'
           size='large'
-          onChange={handleInputChange}
+          onChange={onInputChange}
         />
 
         <Input
@@ -47,7 +57,7 @@ const VideoQuestion: FC<VideoQuestionProps> = ({
           name='question'
           placeholder='Type additional information'
           size='large'
-          onChange={(event) => handleInputChange(event, true)}
+          onChange={(event) => onInputChange(event, true)}
         />
 
         <Row
@@ -55,13 +65,13 @@ const VideoQuestion: FC<VideoQuestionProps> = ({
           className='questiontype-video-row'
         >
           <Col span={16}>
-            <Input
+            <InputNumber
               value={question.additionalInfo?.videoMaxDuration}
-              name='videoMaxDuration'
               placeholder='Max duration of video'
               size='large'
-              type='number'
-              onChange={(event) => handleInputChange(event, true)}
+              onChange={(value) =>
+                onNumberInputChange('videoMaxDuration', value as number, true)
+              }
             />
           </Col>
 
@@ -72,7 +82,7 @@ const VideoQuestion: FC<VideoQuestionProps> = ({
               value={question.additionalInfo.videoDurationType}
               placeholder='in (sec/min)'
               onChange={(value) =>
-                handleSelectChange('videoDurationType', value, true)
+                onSelectChange('videoDurationType', value, true)
               }
               options={videoDurationType}
             />
@@ -81,8 +91,8 @@ const VideoQuestion: FC<VideoQuestionProps> = ({
       </Flex>
 
       <ActionButton
-        onDelete={handleDeleteQuestion}
-        onSave={handleSaveQuestion}
+        onDelete={onDeleteQuestion}
+        onSave={onSaveQuestion}
       />
     </>
   );

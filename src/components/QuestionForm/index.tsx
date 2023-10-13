@@ -5,6 +5,7 @@ import { FC, useState } from 'react';
 import { initialQuestionState, questionTypeOptions } from './constants';
 import {
   Question,
+  QuestionAdditionalInfo,
   QuestionType,
   VideoDurationType,
 } from '../../interfaces/applicationForm';
@@ -69,6 +70,27 @@ const QuestionForm: FC<QuestionFormProps> = ({
       setQuestion({
         ...question,
         [event.target.name as keyof Question]: event?.target.value,
+      });
+    }
+  };
+
+  const handleNumberInputChange = (
+    name: keyof Question | keyof QuestionAdditionalInfo,
+    value: number,
+    isAdditionalInfo?: boolean
+  ) => {
+    if (isAdditionalInfo) {
+      setQuestion({
+        ...question,
+        additionalInfo: {
+          ...question.additionalInfo,
+          [name]: value,
+        },
+      });
+    } else {
+      setQuestion({
+        ...question,
+        [name]: value,
       });
     }
   };
@@ -145,43 +167,44 @@ const QuestionForm: FC<QuestionFormProps> = ({
 
           {question.type === QuestionType.Paragraph && (
             <ParagraphQuestion
-              handleDeleteQuestion={handleDeleteQuestion}
-              handleInputChange={handleInputChange}
-              handleSaveQuestion={handleSaveQuestion}
+              onDeleteQuestion={handleDeleteQuestion}
+              onInputChange={handleInputChange}
+              onSaveQuestion={handleSaveQuestion}
               question={question}
             />
           )}
 
           {question.type === QuestionType.YesOrNo && (
             <YesOrNoQuestion
-              handleCheckboxChange={handleCheckboxChange}
-              handleDeleteQuestion={handleDeleteQuestion}
-              handleInputChange={handleInputChange}
-              handleSaveQuestion={handleSaveQuestion}
+              onCheckboxChange={handleCheckboxChange}
+              onDeleteQuestion={handleDeleteQuestion}
+              onInputChange={handleInputChange}
+              onSaveQuestion={handleSaveQuestion}
               question={question}
             />
           )}
 
           {question.type === QuestionType.MultipleChoice && (
             <MultiChoiceQuestion
-              handleAddChoiceOption={handleAddChoiceOption}
-              handleCheckboxChange={handleCheckboxChange}
-              handleChoiceInputChange={handleChoiceInputChange}
-              handleDeleteQuestion={handleDeleteQuestion}
-              handleInputChange={handleInputChange}
-              handleSaveQuestion={handleSaveQuestion}
+              onNumberInputChange={handleNumberInputChange}
+              onAddChoiceOption={handleAddChoiceOption}
+              onCheckboxChange={handleCheckboxChange}
+              onChoiceInputChange={handleChoiceInputChange}
+              onDeleteQuestion={handleDeleteQuestion}
+              onInputChange={handleInputChange}
+              onSaveQuestion={handleSaveQuestion}
               question={question}
             />
           )}
 
           {question.type === QuestionType.Dropdown && (
             <DropdownQuestion
-              handleAddChoiceOption={handleAddChoiceOption}
-              handleCheckboxChange={handleCheckboxChange}
-              handleChoiceInputChange={handleChoiceInputChange}
-              handleDeleteQuestion={handleDeleteQuestion}
-              handleInputChange={handleInputChange}
-              handleSaveQuestion={handleSaveQuestion}
+              onAddChoiceOption={handleAddChoiceOption}
+              onCheckboxChange={handleCheckboxChange}
+              onChoiceInputChange={handleChoiceInputChange}
+              onDeleteQuestion={handleDeleteQuestion}
+              onInputChange={handleInputChange}
+              onSaveQuestion={handleSaveQuestion}
               question={question}
             />
           )}
@@ -189,10 +212,11 @@ const QuestionForm: FC<QuestionFormProps> = ({
           {question.type === QuestionType.Video && (
             <>
               <VideoQuestion
-                handleDeleteQuestion={handleDeleteQuestion}
-                handleInputChange={handleInputChange}
-                handleSaveQuestion={handleSaveQuestion}
-                handleSelectChange={handleSelectChange}
+                onDeleteQuestion={handleDeleteQuestion}
+                onInputChange={handleInputChange}
+                onSaveQuestion={handleSaveQuestion}
+                onSelectChange={handleSelectChange}
+                onNumberInputChange={handleNumberInputChange}
                 question={question}
               />
             </>

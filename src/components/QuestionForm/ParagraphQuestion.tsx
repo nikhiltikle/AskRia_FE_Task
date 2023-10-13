@@ -5,15 +5,15 @@ import ActionButton from './ActionButton';
 
 interface ParagraphQuestionProps {
   question: Question;
-  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleDeleteQuestion: () => void;
-  handleSaveQuestion: () => void;
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onDeleteQuestion: () => void;
+  onSaveQuestion: () => void;
 }
 
 const ParagraphQuestion: FC<ParagraphQuestionProps> = ({
-  handleDeleteQuestion,
-  handleInputChange,
-  handleSaveQuestion,
+  onDeleteQuestion,
+  onInputChange,
+  onSaveQuestion,
   question,
 }) => {
   return (
@@ -24,11 +24,11 @@ const ParagraphQuestion: FC<ParagraphQuestionProps> = ({
         name='question'
         placeholder='Type here'
         size='large'
-        onChange={handleInputChange}
+        onChange={onInputChange}
       />
       <ActionButton
-        onDelete={handleDeleteQuestion}
-        onSave={handleSaveQuestion}
+        onDelete={onDeleteQuestion}
+        onSave={onSaveQuestion}
       />
     </>
   );

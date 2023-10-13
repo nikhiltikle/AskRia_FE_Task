@@ -16,6 +16,12 @@ export enum VideoDurationType {
   Seconds = 'Seconds',
 }
 
+export interface QuestionAdditionalInfo {
+  question: string;
+  videoMaxDuration: number;
+  videoDurationType: VideoDurationType;
+}
+
 export interface Question {
   id: string;
   type: QuestionType;
@@ -24,11 +30,7 @@ export interface Question {
   maxChoice?: number;
   disqualify?: boolean;
   other?: boolean;
-  additionalInfo: {
-    question: string;
-    videoMaxDuration: number;
-    videoDurationType: VideoDurationType;
-  };
+  additionalInfo: QuestionAdditionalInfo;
 }
 
 export interface PersonalInformationActionOptions {

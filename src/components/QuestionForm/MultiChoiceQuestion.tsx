@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Question } from '../../interfaces/applicationForm';
-import { Button, Checkbox, Flex, Input, Typography } from 'antd';
+import { Button, Checkbox, Flex, Input, InputNumber, Typography } from 'antd';
 import MenuIcon from '../../icons/Menu';
 import PlusIcon from '../../icons/Plus';
 import ActionButton from './ActionButton';
@@ -8,24 +8,26 @@ import { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 interface MultiChoiceQuestionProps {
   question: Question;
-  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleDeleteQuestion: () => void;
-  handleSaveQuestion: () => void;
-  handleChoiceInputChange: (
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onNumberInputChange: (name: keyof Question, value: number) => void;
+  onDeleteQuestion: () => void;
+  onSaveQuestion: () => void;
+  onChoiceInputChange: (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => void;
-  handleAddChoiceOption: () => void;
-  handleCheckboxChange: (event: CheckboxChangeEvent) => void;
+  onAddChoiceOption: () => void;
+  onCheckboxChange: (event: CheckboxChangeEvent) => void;
 }
 
 const MultiChoiceQuestion: FC<MultiChoiceQuestionProps> = ({
-  handleDeleteQuestion,
-  handleInputChange,
-  handleSaveQuestion,
-  handleChoiceInputChange,
-  handleAddChoiceOption,
-  handleCheckboxChange,
+  onDeleteQuestion,
+  onInputChange,
+  onSaveQuestion,
+  onChoiceInputChange,
+  onAddChoiceOption,
+  onCheckboxChange,
+  onNumberInputChange,
   question,
 }) => {
   return (
@@ -36,7 +38,7 @@ const MultiChoiceQuestion: FC<MultiChoiceQuestionProps> = ({
         name='question'
         placeholder='Type here'
         size='large'
-        onChange={handleInputChange}
+        onChange={onInputChange}
       />
 
       <Typography.Title
@@ -49,14 +51,14 @@ const MultiChoiceQuestion: FC<MultiChoiceQuestionProps> = ({
       <Flex
         vertical
         gap='8px'
-        className='question-choices'
+        className='question-choices-container'
       >
         {question.choices?.map((choice, choiceIndex, allChoices) => (
           <Flex
             key={choiceIndex}
             gap='8px'
             align='center'
-            className='question-choices'
+            className='question-choices-container'
           >
             <MenuIcon />
 
@@ -65,14 +67,14 @@ const MultiChoiceQuestion: FC<MultiChoiceQuestionProps> = ({
               value={choice}
               placeholder='Type here'
               size='large'
-              onChange={(event) => handleChoiceInputChange(event, choiceIndex)}
+              onChange={(event) => onChoiceInputChange(event, choiceIndex)}
             />
 
             {choiceIndex === allChoices.length - 1 && (
               <Button
                 type='text'
-                onClick={handleAddChoiceOption}
-                className='choice-index-button'
+                onClick={onAddChoiceOption}
+                className='question-choice-plus-button'
                 size='large'
                 icon={<PlusIcon />}
               />
@@ -84,25 +86,23 @@ const MultiChoiceQuestion: FC<MultiChoiceQuestionProps> = ({
       <Checkbox
         name='other'
         checked={question.other}
-        onChange={handleCheckboxChange}
+        onChange={onCheckboxChange}
         className='choicebox-other-button'
       >
         Enable “Other” option
       </Checkbox>
 
       <Typography.Title level={4}>Max choice allowed</Typography.Title>
-      <Input
+      <InputNumber
         value={question.maxChoice}
-        name='maxChoice'
         placeholder='Enter number of choice allowed here'
         size='large'
-        type='number'
-        onChange={handleInputChange}
+        onChange={(value) => onNumberInputChange('maxChoice', value as number)}
       />
 
       <ActionButton
-        onDelete={handleDeleteQuestion}
-        onSave={handleSaveQuestion}
+        onDelete={onDeleteQuestion}
+        onSave={onSaveQuestion}
       />
     </>
   );

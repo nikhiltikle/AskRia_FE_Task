@@ -36,12 +36,6 @@
   width: 100%;
 }
 
-.choice-index-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .choicebox-other-button {
   margin-top: 24px;
 }
@@ -50,15 +44,16 @@
   padding-left: 32px;
 }
 
-.question-choice-full-width {
-  width: 100%;
-}
-
 .question-choice-plus-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px !important;
+  width: 0px !important;
+}
+
+.question-choice-plus-button:hover {
+  background-color: transparent !important;
+  opacity: 0.8 !important;
 }
 
 .checkbox-other-style {

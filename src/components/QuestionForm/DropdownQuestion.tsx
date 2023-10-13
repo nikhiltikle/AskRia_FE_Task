@@ -8,24 +8,24 @@ import { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 interface DropdownQuestionProps {
   question: Question;
-  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleDeleteQuestion: () => void;
-  handleSaveQuestion: () => void;
-  handleChoiceInputChange: (
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onDeleteQuestion: () => void;
+  onSaveQuestion: () => void;
+  onChoiceInputChange: (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => void;
-  handleAddChoiceOption: () => void;
-  handleCheckboxChange: (event: CheckboxChangeEvent) => void;
+  onAddChoiceOption: () => void;
+  onCheckboxChange: (event: CheckboxChangeEvent) => void;
 }
 
 const DropdownQuestion: FC<DropdownQuestionProps> = ({
-  handleDeleteQuestion,
-  handleInputChange,
-  handleSaveQuestion,
-  handleChoiceInputChange,
-  handleAddChoiceOption,
-  handleCheckboxChange,
+  onDeleteQuestion,
+  onInputChange,
+  onSaveQuestion,
+  onChoiceInputChange,
+  onAddChoiceOption,
+  onCheckboxChange,
   question,
 }) => {
   return (
@@ -36,7 +36,7 @@ const DropdownQuestion: FC<DropdownQuestionProps> = ({
         name='question'
         placeholder='Type here'
         size='large'
-        onChange={handleInputChange}
+        onChange={onInputChange}
       />
 
       <Typography.Title
@@ -49,14 +49,14 @@ const DropdownQuestion: FC<DropdownQuestionProps> = ({
       <Flex
         vertical
         gap='8px'
-        className='question-choice-full-width'
+        className='question-choices-container'
       >
         {question.choices?.map((choice, choiceIndex, allChoices) => (
           <Flex
             key={choiceIndex}
             gap='8px'
             align='center'
-            className='question-choice-full-width'
+            className='question-choices-container'
           >
             <MenuIcon />
 
@@ -65,13 +65,13 @@ const DropdownQuestion: FC<DropdownQuestionProps> = ({
               value={choice}
               placeholder='Type here'
               size='large'
-              onChange={(event) => handleChoiceInputChange(event, choiceIndex)}
+              onChange={(event) => onChoiceInputChange(event, choiceIndex)}
             />
 
             {choiceIndex === allChoices.length - 1 && (
               <Button
                 type='text'
-                onClick={handleAddChoiceOption}
+                onClick={onAddChoiceOption}
                 className='question-choice-plus-button'
                 size='large'
                 icon={<PlusIcon />}
@@ -84,15 +84,15 @@ const DropdownQuestion: FC<DropdownQuestionProps> = ({
       <Checkbox
         name='other'
         checked={question.other}
-        onChange={handleCheckboxChange}
+        onChange={onCheckboxChange}
         className='checkbox-other-style'
       >
         Enable “Other” option
       </Checkbox>
 
       <ActionButton
-        onDelete={handleDeleteQuestion}
-        onSave={handleSaveQuestion}
+        onDelete={onDeleteQuestion}
+        onSave={onSaveQuestion}
       />
     </>
   );
