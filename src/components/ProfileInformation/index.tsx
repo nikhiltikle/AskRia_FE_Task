@@ -1,4 +1,4 @@
-import { Divider } from 'antd';
+import { Divider, Flex } from 'antd';
 import Card from '../Card';
 import ListItem from '../ListItem';
 import QuestionForm from '../QuestionForm';
@@ -6,6 +6,7 @@ import ListItemActionButton from '../ApplicationForm/ListItemActionButton';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Profile, Question } from '../../interfaces/applicationForm';
 import { useApplicationFormContext } from '../../context/applicationForm';
+import { Fragment } from 'react';
 
 const ProfileInformation = () => {
   const { profile, setProfile } = useApplicationFormContext();
@@ -105,20 +106,29 @@ const ProfileInformation = () => {
         }
       />
 
-      {/* Show and can edit profile questions */}
-      {profile?.profileQuestions?.map((question, questionIndex) => (
-        <QuestionForm
-          key={question?.id}
-          questionData={question}
-          onSaveQuestion={(updatedQuestion) =>
-            handleSaveQuestion(updatedQuestion, questionIndex)
-          }
-          onDeleteQuestion={() => handleDeleteQuestion(questionIndex)}
-        />
-      ))}
+      <Flex
+        vertical
+        gap='24px'
+        style={{ marginTop: '24px' }}
+      >
+        {/* Show and can edit profile questions */}
+        {profile?.profileQuestions?.map((question, questionIndex) => (
+          <Fragment key={question?.id}>
+            <Divider style={{ margin: 0 }} />
 
-      {/* Add new profile question */}
-      <QuestionForm onSaveQuestion={handleSaveQuestion} />
+            <QuestionForm
+              questionData={question}
+              onSaveQuestion={(updatedQuestion) =>
+                handleSaveQuestion(updatedQuestion, questionIndex)
+              }
+              onDeleteQuestion={() => handleDeleteQuestion(questionIndex)}
+            />
+          </Fragment>
+        ))}
+
+        {/* Add new profile question */}
+        <QuestionForm onSaveQuestion={handleSaveQuestion} />
+      </Flex>
     </Card>
   );
 };

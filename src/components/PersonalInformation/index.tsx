@@ -1,4 +1,4 @@
-import { Divider } from 'antd';
+import { Divider, Flex } from 'antd';
 import Card from '../Card';
 import ListItemActionButton from '../ApplicationForm/ListItemActionButton';
 import QuestionForm from '../QuestionForm';
@@ -9,6 +9,7 @@ import {
   PersonalInformation as IPersonalInformation,
   Question,
 } from '../../interfaces/applicationForm';
+import { Fragment } from 'react';
 
 const PersonalInformation = () => {
   const { personalInformation, setPersonalInformation } =
@@ -167,22 +168,32 @@ const PersonalInformation = () => {
         }
       />
 
-      {/* Show and can edit personal questions */}
-      {personalInformation?.personalQuestions?.map(
-        (question, questionIndex) => (
-          <QuestionForm
-            key={question?.id}
-            questionData={question}
-            onSaveQuestion={(updatedQuestion) =>
-              handleSaveQuestion(updatedQuestion, questionIndex)
-            }
-            onDeleteQuestion={() => handleDeleteQuestion(questionIndex)}
-          />
-        )
-      )}
+      <Flex
+        vertical
+        gap='24px'
+        style={{ marginTop: '24px' }}
+      >
+        {/* Show and can edit personal questions */}
+        {personalInformation?.personalQuestions?.map(
+          (question, questionIndex) => (
+            <Fragment key={question?.id}>
+              <Divider style={{ margin: 0 }} />
 
-      {/* Add new personal question */}
-      <QuestionForm onSaveQuestion={handleSaveQuestion} />
+              <QuestionForm
+                key={question?.id}
+                questionData={question}
+                onSaveQuestion={(updatedQuestion) =>
+                  handleSaveQuestion(updatedQuestion, questionIndex)
+                }
+                onDeleteQuestion={() => handleDeleteQuestion(questionIndex)}
+              />
+            </Fragment>
+          )
+        )}
+
+        {/* Add new personal question */}
+        <QuestionForm onSaveQuestion={handleSaveQuestion} />
+      </Flex>
     </Card>
   );
 };

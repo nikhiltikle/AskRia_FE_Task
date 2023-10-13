@@ -1,3 +1,4 @@
+import './index.css';
 import {
   Button,
   Checkbox,
@@ -116,10 +117,7 @@ const QuestionForm: FC<QuestionFormProps> = ({
   };
 
   return (
-    <Flex
-      vertical
-      className='question-form-container'
-    >
+    <Flex vertical>
       {!questionData && (
         <Button
           icon={<PlusIcon />}
@@ -140,7 +138,7 @@ const QuestionForm: FC<QuestionFormProps> = ({
             {questionData?.type}
           </Typography>
           <Flex
-            align='center'
+            align='flex-start'
             justify='space-between'
             style={{ width: '100%' }}
           >

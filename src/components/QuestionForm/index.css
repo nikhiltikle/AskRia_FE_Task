@@ -14,10 +14,6 @@
   color: var(----bg-white-base);
 }
 
-.question-form-container {
-  margin-top: 50px;
-}
-
 .question-form-plus-button {
   display: inline-flex;
   align-items: center;
@@ -62,6 +58,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 32px !important;
 }
 
 .checkbox-other-style {

@@ -41,7 +41,7 @@ const ListItemActionButton: React.FC<ListItemActionButtonProps> = ({
           checked={show}
           onChange={onSwitchChange}
         />
-        <Typography>{show ? 'Hide' : 'Show'}</Typography>
+        <Typography>{show ? 'Show' : 'Hide'}</Typography>
       </Flex>
     </Flex>
   );
