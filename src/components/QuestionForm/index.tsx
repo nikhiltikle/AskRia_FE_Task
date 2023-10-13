@@ -9,7 +9,7 @@ import {
   Typography,
 } from 'antd';
 import PlusIcon from '../../icons/Plus';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import {
   initialQuestionState,
   questionTypeOptions,
@@ -19,14 +19,32 @@ import {
   Question,
   QuestionType,
   VideoDurationType,
-} from '../../interfaces/global';
+} from '../../interfaces/applicationForm';
 import ActionButton from './ActionButton';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import MenuIcon from '../../icons/Menu';
+import pencilIcon from '../../assets/icons/pencil.svg';
 
-const QuestionForm = () => {
+type ConditionalProps =
+  | {
+      questionData?: Question;
+      onDeleteQuestion: () => void;
+    }
+  | { questionData?: null | undefined; onDeleteQuestion?: () => void };
+
+type QuestionFormProps = ConditionalProps & {
+  onSaveQuestion: (question: Question) => void;
+};
+
+const QuestionForm: FC<QuestionFormProps> = ({
+  questionData,
+  onDeleteQuestion,
+  onSaveQuestion,
+}) => {
   const [openForm, setOpenForm] = useState(false);
-  const [question, setQuestion] = useState<Question>(initialQuestionState);
+  const [question, setQuestion] = useState<Question>(
+    questionData ?? initialQuestionState
+  );
 
   const handleSelectChange = (
     name: string,
@@ -84,12 +102,15 @@ const QuestionForm = () => {
     setQuestion({ ...question, choices });
   };
 
-  const onSaveQuestion = () => {
-    console.log({ question });
+  const handleSaveQuestion = () => {
     setOpenForm(false);
+    onSaveQuestion(question);
+
+    !questionData && setQuestion(initialQuestionState);
   };
 
   const handleDeleteQuestion = () => {
+    questionData && onDeleteQuestion();
     setQuestion(initialQuestionState);
     setOpenForm(false);
   };
@@ -99,15 +120,52 @@ const QuestionForm = () => {
       vertical
       className='question-form-container'
     >
-      <Button
-        icon={<PlusIcon />}
-        className='question-form-plus-button'
-        type='text'
-        size='large'
-        onClick={() => setOpenForm(true)}
-      >
-        Add a question
-      </Button>
+      {!questionData && (
+        <Button
+          icon={<PlusIcon />}
+          className='question-form-plus-button'
+          type='text'
+          size='large'
+          onClick={() => setOpenForm(true)}
+        >
+          Add a question
+        </Button>
+      )}
+
+      {!!questionData && (
+        <>
+          <Typography
+            style={{ color: '#979797', fontSize: '14px', fontWeight: 500 }}
+          >
+            {questionData?.type}
+          </Typography>
+          <Flex
+            align='center'
+            justify='space-between'
+            style={{ width: '100%' }}
+          >
+            <Typography style={{ fontSize: '20px', fontWeight: 600 }}>
+              {questionData?.question}
+            </Typography>
+
+            <Button
+              type='text'
+              onClick={() => setOpenForm(true)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              icon={
+                <img
+                  src={pencilIcon}
+                  alt='Edit question'
+                />
+              }
+            />
+          </Flex>
+        </>
+      )}
 
       {openForm && (
         <Flex
@@ -128,6 +186,7 @@ const QuestionForm = () => {
             <>
               <Typography.Title level={4}>Question</Typography.Title>
               <Input
+                value={question.question}
                 name='question'
                 placeholder='Type here'
                 size='large'
@@ -135,7 +194,7 @@ const QuestionForm = () => {
               />
               <ActionButton
                 onDelete={handleDeleteQuestion}
-                onSave={onSaveQuestion}
+                onSave={handleSaveQuestion}
               />
             </>
           )}
@@ -144,6 +203,7 @@ const QuestionForm = () => {
             <>
               <Typography.Title level={4}>Question</Typography.Title>
               <Input
+                value={question.question}
                 name='question'
                 placeholder='Type here'
                 size='large'
@@ -158,8 +218,8 @@ const QuestionForm = () => {
                 Disqualify candidate if the answer is no
               </Checkbox>
               <ActionButton
-                onDelete={() => setQuestion(initialQuestionState)}
-                onSave={onSaveQuestion}
+                onDelete={handleDeleteQuestion}
+                onSave={handleSaveQuestion}
               />
             </>
           )}
@@ -168,6 +228,7 @@ const QuestionForm = () => {
             <>
               <Typography.Title level={4}>Question</Typography.Title>
               <Input
+                value={question.question}
                 name='question'
                 placeholder='Type here'
                 size='large'
@@ -229,6 +290,7 @@ const QuestionForm = () => {
 
               <Typography.Title level={4}>Max choice allowed</Typography.Title>
               <Input
+                value={question.maxChoice}
                 name='maxChoice'
                 placeholder='Enter number of choice allowed here'
                 size='large'
@@ -237,8 +299,8 @@ const QuestionForm = () => {
               />
 
               <ActionButton
-                onDelete={() => setQuestion(initialQuestionState)}
-                onSave={onSaveQuestion}
+                onDelete={handleDeleteQuestion}
+                onSave={handleSaveQuestion}
               />
             </>
           )}
@@ -247,6 +309,7 @@ const QuestionForm = () => {
             <>
               <Typography.Title level={4}>Question</Typography.Title>
               <Input
+                value={question.question}
                 name='question'
                 placeholder='Type here'
                 size='large'
@@ -307,8 +370,8 @@ const QuestionForm = () => {
               </Checkbox>
 
               <ActionButton
-                onDelete={() => setQuestion(initialQuestionState)}
-                onSave={onSaveQuestion}
+                onDelete={handleDeleteQuestion}
+                onSave={handleSaveQuestion}
               />
             </>
           )}
@@ -322,6 +385,7 @@ const QuestionForm = () => {
                 className='questiontype-video-container'
               >
                 <Input
+                  value={question.question}
                   name='question'
                   placeholder='Type here'
                   size='large'
@@ -329,6 +393,7 @@ const QuestionForm = () => {
                 />
 
                 <Input
+                  value={question.additionalInfo?.question}
                   name='question'
                   placeholder='Type additional information'
                   size='large'
@@ -341,6 +406,7 @@ const QuestionForm = () => {
                 >
                   <Col span={16}>
                     <Input
+                      value={question.additionalInfo?.videoMaxDuration}
                       name='videoMaxDuration'
                       placeholder='Max duration of video'
                       size='large'
@@ -365,8 +431,30 @@ const QuestionForm = () => {
               </Flex>
 
               <ActionButton
-                onDelete={() => setQuestion(initialQuestionState)}
-                onSave={onSaveQuestion}
+                onDelete={handleDeleteQuestion}
+                onSave={handleSaveQuestion}
+              />
+            </>
+          )}
+
+          {[
+            QuestionType.Date,
+            QuestionType.FileUpload,
+            QuestionType.Number,
+            QuestionType.ShortAnswer,
+          ].includes(question.type) && (
+            <>
+              <Typography.Title level={4}>Question</Typography.Title>
+              <Input
+                value={question.question}
+                name='question'
+                placeholder='Type here'
+                size='large'
+                onChange={handleInputChange}
+              />
+              <ActionButton
+                onDelete={handleDeleteQuestion}
+                onSave={handleSaveQuestion}
               />
             </>
           )}

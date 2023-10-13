@@ -3,7 +3,7 @@ import {
   Question,
   QuestionType,
   VideoDurationType,
-} from '../../interfaces/global';
+} from '../../interfaces/applicationForm';
 
 export const initialQuestionState: Question = {
   id: uuidv4(),
@@ -22,24 +22,40 @@ export const initialQuestionState: Question = {
 
 export const questionTypeOptions = [
   {
-    value: 'paragraph',
+    value: QuestionType.Paragraph,
     label: 'Paragraph',
   },
   {
-    value: 'multipleChoice',
+    value: QuestionType.MultipleChoice,
     label: 'Multiple Choice',
   },
   {
-    value: 'dropdown',
+    value: QuestionType.Dropdown,
     label: 'Dropdown',
   },
   {
-    value: 'yesOrNo',
+    value: QuestionType.YesOrNo,
     label: 'Yes or no',
   },
   {
-    value: 'video',
+    value: QuestionType.Video,
     label: 'Video question',
+  },
+  {
+    value: QuestionType.ShortAnswer,
+    label: 'Short answer',
+  },
+  {
+    value: QuestionType.Date,
+    label: 'Date',
+  },
+  {
+    value: QuestionType.Number,
+    label: 'Number',
+  },
+  {
+    value: QuestionType.FileUpload,
+    label: 'File upload',
   },
 ];
 
