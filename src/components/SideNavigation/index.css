@@ -22,6 +22,9 @@
 }
 
 .side-navbar-container-style {
+  position: fixed;
+  top: 0;
+  bottom: 0;
   height: var(--app-height);
   padding: 12px;
   padding-block: 24px;
