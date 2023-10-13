@@ -8,7 +8,7 @@ import {
   Select,
   Typography,
 } from 'antd';
-import PlusIcon from '../Icons/Plus';
+import PlusIcon from '../../icons/Plus';
 import { useState } from 'react';
 import {
   initialQuestionState,
@@ -22,7 +22,7 @@ import {
 } from '../../interfaces/global';
 import ActionButton from './ActionButton';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
-import MenuIcon from '../Icons/Menu';
+import MenuIcon from '../../icons/Menu';
 
 const QuestionForm = () => {
   const [openForm, setOpenForm] = useState(false);
@@ -95,7 +95,10 @@ const QuestionForm = () => {
   };
 
   return (
-    <Flex vertical className='question-form-container'>
+    <Flex
+      vertical
+      className='question-form-container'
+    >
       <Button
         icon={<PlusIcon />}
         className='question-form-plus-button'
@@ -107,7 +110,10 @@ const QuestionForm = () => {
       </Button>
 
       {openForm && (
-        <Flex vertical align='flex-start'>
+        <Flex
+          vertical
+          align='flex-start'
+        >
           <Typography.Title level={4}>Type</Typography.Title>
           <Select
             className='open-form-select-style'
@@ -168,11 +174,18 @@ const QuestionForm = () => {
                 onChange={handleInputChange}
               />
 
-              <Typography.Title level={5} className='question-type-title-style'>
+              <Typography.Title
+                level={5}
+                className='question-type-title-style'
+              >
                 Choice
               </Typography.Title>
 
-              <Flex vertical gap='8px' className='question-choices'>
+              <Flex
+                vertical
+                gap='8px'
+                className='question-choices'
+              >
                 {question.choices?.map((choice, choiceIndex, allChoices) => (
                   <Flex
                     key={choiceIndex}
@@ -240,11 +253,18 @@ const QuestionForm = () => {
                 onChange={handleInputChange}
               />
 
-              <Typography.Title level={5} className='choice-text-style'>
+              <Typography.Title
+                level={5}
+                className='choice-text-style'
+              >
                 Choice
               </Typography.Title>
 
-              <Flex vertical gap='8px' className='question-choice-full-width'>
+              <Flex
+                vertical
+                gap='8px'
+                className='question-choice-full-width'
+              >
                 {question.choices?.map((choice, choiceIndex, allChoices) => (
                   <Flex
                     key={choiceIndex}
@@ -315,7 +335,10 @@ const QuestionForm = () => {
                   onChange={(event) => handleInputChange(event, true)}
                 />
 
-                <Row gutter={8} className='questiontype-video-row'>
+                <Row
+                  gutter={8}
+                  className='questiontype-video-row'
+                >
                   <Col span={16}>
                     <Input
                       name='videoMaxDuration'

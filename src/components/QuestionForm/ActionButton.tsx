@@ -1,5 +1,5 @@
 import { Button, Flex } from 'antd';
-import CrossIcon from '../Icons/Cross';
+import CrossIcon from '../../icons/Cross';
 import './index.css';
 
 interface ActionButtonProps {
