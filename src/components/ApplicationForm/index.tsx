@@ -1,26 +1,21 @@
 import './index.css';
 
 import { Flex } from 'antd';
+import { useEffect } from 'react';
 import ImageUpload from '../ImageUpload';
 import PersonalInformation from '../PersonalInformation';
 import ProfileInformation from '../ProfileInformation';
 import { useApplicationFormContext } from '../../context/applicationForm';
-import { useEffect } from 'react';
 import { ApplicationFormState } from '../../interfaces/applicationForm';
 import AdditionalQuestions from '../AdditionalQuestions';
 
-interface FormProps {}
-
-const ApplicationForm: React.FC<FormProps> = () => {
-  const { setFormData, coverImage, personalInformation, setCoverImage } =
+const ApplicationForm = () => {
+  const { setFormData, coverImage, setCoverImage } =
     useApplicationFormContext();
-  console.log({ coverImage, personalInformation });
 
   const fetchApplicationFormData = async () => {
     try {
-      const formDataRes = await fetch(
-        'http://127.0.0.1:4010/api/398.9189931590182/programs/consequuntur/application-form'
-      );
+      const formDataRes = await fetch(process.env.REACT_APP_GET_API as string);
       const parsedFormData: ApplicationFormState = await (
         await formDataRes.json()
       ).data?.attributes;
@@ -33,6 +28,7 @@ const ApplicationForm: React.FC<FormProps> = () => {
 
   useEffect(() => {
     fetchApplicationFormData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleDeleteCoverImage = () => {

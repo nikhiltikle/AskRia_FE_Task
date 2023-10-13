@@ -1,5 +1,4 @@
 import './index.css';
-
 import { Flex, Tag, Typography } from 'antd';
 
 interface CandidateCardProps {
@@ -18,15 +17,26 @@ const CandidateCard = ({
   buttonText,
 }: CandidateCardProps) => {
   return (
-    <Flex vertical gap='small' align='start'>
+    <Flex
+      vertical
+      gap='small'
+      align='start'
+    >
       <Typography className='candidate-heading'>{heading}</Typography>
       <Typography className='candidate-subheading'>{subHeading}</Typography>
       <Typography className='candidate-education'>{education}</Typography>
 
-      <Flex align='start' gap='small' className='candidate-hashTags-container'>
+      <Flex
+        align='start'
+        gap='small'
+        className='candidate-hashTags-container'
+      >
         {hashTags.map((hashTag: string) => {
           return (
-            <Typography key={hashTag} className='candidate-hashTags'>
+            <Typography
+              key={hashTag}
+              className='candidate-hashTags'
+            >
               {hashTag}
             </Typography>
           );

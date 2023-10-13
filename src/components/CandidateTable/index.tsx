@@ -1,11 +1,10 @@
 import './index.css';
-
-import { Divider, Flex, Tag } from 'antd';
+import { Checkbox, Divider, Flex, Tag } from 'antd';
 import React from 'react';
 import Docucments from '../../icons/Documents';
 import PlayCircleIcon from '../../assets/icons/Play_Circle.png';
 import CandidateCard from '../CandidateCard';
-import TableCheckbox from '../CheckBox';
+import { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 interface CandidateDataProps {
   id: number;
@@ -16,6 +15,7 @@ interface CandidateDataProps {
   buttonText: string[];
   buttons?: boolean;
 }
+
 const CandidateData: CandidateDataProps[] = [
   {
     id: 1,
@@ -61,6 +61,10 @@ const CandidateData: CandidateDataProps[] = [
 ];
 
 const CandidateTable = () => {
+  const onChangeCheckbox = (e: CheckboxChangeEvent) => {
+    console.log(`checked = ${e.target.checked}`);
+  };
+
   return (
     <>
       {CandidateData.map((data, index) => (
@@ -75,7 +79,7 @@ const CandidateTable = () => {
               gap='middle'
               className='checkbox-candidate-card-container'
             >
-              <TableCheckbox />
+              <Checkbox onChange={onChangeCheckbox} />
               <Flex
                 gap='large'
                 align='center'
@@ -110,7 +114,12 @@ const CandidateTable = () => {
                 <Tag
                   color='#E3EBFF'
                   bordered={false}
-                  icon={<img src={PlayCircleIcon} alt='Media' />}
+                  icon={
+                    <img
+                      src={PlayCircleIcon}
+                      alt='Media'
+                    />
+                  }
                 >
                   4
                 </Tag>

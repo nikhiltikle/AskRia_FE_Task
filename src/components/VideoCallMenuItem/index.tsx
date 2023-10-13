@@ -1,8 +1,8 @@
+import './index.css';
 import { UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown, Typography } from 'antd';
 import ExpandMore from '../../icons/ExpandMore';
-import './index.css';
 import { getMenuItem } from '../../utils/helper';
 
 const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {

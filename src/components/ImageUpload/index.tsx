@@ -1,5 +1,4 @@
 import './index.css';
-
 import { Button, Flex, Typography, Upload } from 'antd';
 import Card from '../Card';
 import UploadIcon from '../../assets/icons/upload.svg';

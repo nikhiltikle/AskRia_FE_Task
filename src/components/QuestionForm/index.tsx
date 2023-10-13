@@ -1,21 +1,8 @@
 import './index.css';
-import {
-  Button,
-  Checkbox,
-  Col,
-  Flex,
-  Input,
-  Row,
-  Select,
-  Typography,
-} from 'antd';
+import { Button, Flex, Input, Select, Typography } from 'antd';
 import PlusIcon from '../../icons/Plus';
 import { FC, useState } from 'react';
-import {
-  initialQuestionState,
-  questionTypeOptions,
-  videoDurationType,
-} from './constants';
+import { initialQuestionState, questionTypeOptions } from './constants';
 import {
   Question,
   QuestionType,
@@ -23,8 +10,12 @@ import {
 } from '../../interfaces/applicationForm';
 import ActionButton from './ActionButton';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
-import MenuIcon from '../../icons/Menu';
-import pencilIcon from '../../assets/icons/pencil.svg';
+import ShowQuestion from './ShowQuestion';
+import ParagraphQuestion from './ParagraphQuestion';
+import YesOrNoQuestion from './YesOrNoQuestion';
+import MultiChoiceQuestion from './MultiChoiceQuestion';
+import DropdownQuestion from './DropdownQuestion';
+import VideoQuestion from './VideoQuestion';
 
 type ConditionalProps =
   | {
@@ -131,38 +122,10 @@ const QuestionForm: FC<QuestionFormProps> = ({
       )}
 
       {!!questionData && (
-        <>
-          <Typography
-            style={{ color: '#979797', fontSize: '14px', fontWeight: 500 }}
-          >
-            {questionData?.type}
-          </Typography>
-          <Flex
-            align='flex-start'
-            justify='space-between'
-            style={{ width: '100%' }}
-          >
-            <Typography style={{ fontSize: '20px', fontWeight: 600 }}>
-              {questionData?.question}
-            </Typography>
-
-            <Button
-              type='text'
-              onClick={() => setOpenForm(true)}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              icon={
-                <img
-                  src={pencilIcon}
-                  alt='Edit question'
-                />
-              }
-            />
-          </Flex>
-        </>
+        <ShowQuestion
+          onEdit={() => setOpenForm(true)}
+          question={questionData}
+        />
       )}
 
       {openForm && (
@@ -181,256 +144,56 @@ const QuestionForm: FC<QuestionFormProps> = ({
           />
 
           {question.type === QuestionType.Paragraph && (
-            <>
-              <Typography.Title level={4}>Question</Typography.Title>
-              <Input
-                value={question.question}
-                name='question'
-                placeholder='Type here'
-                size='large'
-                onChange={handleInputChange}
-              />
-              <ActionButton
-                onDelete={handleDeleteQuestion}
-                onSave={handleSaveQuestion}
-              />
-            </>
+            <ParagraphQuestion
+              handleDeleteQuestion={handleDeleteQuestion}
+              handleInputChange={handleInputChange}
+              handleSaveQuestion={handleSaveQuestion}
+              question={question}
+            />
           )}
 
           {question.type === QuestionType.YesOrNo && (
-            <>
-              <Typography.Title level={4}>Question</Typography.Title>
-              <Input
-                value={question.question}
-                name='question'
-                placeholder='Type here'
-                size='large'
-                onChange={handleInputChange}
-              />
-              <Checkbox
-                name='disqualify'
-                checked={question.disqualify}
-                onChange={handleCheckboxChange}
-                className='question-type-checkbox-style'
-              >
-                Disqualify candidate if the answer is no
-              </Checkbox>
-              <ActionButton
-                onDelete={handleDeleteQuestion}
-                onSave={handleSaveQuestion}
-              />
-            </>
+            <YesOrNoQuestion
+              handleCheckboxChange={handleCheckboxChange}
+              handleDeleteQuestion={handleDeleteQuestion}
+              handleInputChange={handleInputChange}
+              handleSaveQuestion={handleSaveQuestion}
+              question={question}
+            />
           )}
 
           {question.type === QuestionType.MultipleChoice && (
-            <>
-              <Typography.Title level={4}>Question</Typography.Title>
-              <Input
-                value={question.question}
-                name='question'
-                placeholder='Type here'
-                size='large'
-                onChange={handleInputChange}
-              />
-
-              <Typography.Title
-                level={5}
-                className='question-type-title-style'
-              >
-                Choice
-              </Typography.Title>
-
-              <Flex
-                vertical
-                gap='8px'
-                className='question-choices'
-              >
-                {question.choices?.map((choice, choiceIndex, allChoices) => (
-                  <Flex
-                    key={choiceIndex}
-                    gap='8px'
-                    align='center'
-                    className='question-choices'
-                  >
-                    <MenuIcon />
-
-                    <Input
-                      name='choice'
-                      value={choice}
-                      placeholder='Type here'
-                      size='large'
-                      onChange={(event) =>
-                        handleChoiceInputChange(event, choiceIndex)
-                      }
-                    />
-
-                    {choiceIndex === allChoices.length - 1 && (
-                      <Button
-                        type='text'
-                        onClick={handleAddChoiceOption}
-                        className='choice-index-button'
-                        size='large'
-                        icon={<PlusIcon />}
-                      />
-                    )}
-                  </Flex>
-                ))}
-              </Flex>
-
-              <Checkbox
-                name='other'
-                checked={question.other}
-                onChange={handleCheckboxChange}
-                className='choicebox-other-button'
-              >
-                Enable “Other” option
-              </Checkbox>
-
-              <Typography.Title level={4}>Max choice allowed</Typography.Title>
-              <Input
-                value={question.maxChoice}
-                name='maxChoice'
-                placeholder='Enter number of choice allowed here'
-                size='large'
-                type='number'
-                onChange={handleInputChange}
-              />
-
-              <ActionButton
-                onDelete={handleDeleteQuestion}
-                onSave={handleSaveQuestion}
-              />
-            </>
+            <MultiChoiceQuestion
+              handleAddChoiceOption={handleAddChoiceOption}
+              handleCheckboxChange={handleCheckboxChange}
+              handleChoiceInputChange={handleChoiceInputChange}
+              handleDeleteQuestion={handleDeleteQuestion}
+              handleInputChange={handleInputChange}
+              handleSaveQuestion={handleSaveQuestion}
+              question={question}
+            />
           )}
 
           {question.type === QuestionType.Dropdown && (
-            <>
-              <Typography.Title level={4}>Question</Typography.Title>
-              <Input
-                value={question.question}
-                name='question'
-                placeholder='Type here'
-                size='large'
-                onChange={handleInputChange}
-              />
-
-              <Typography.Title
-                level={5}
-                className='choice-text-style'
-              >
-                Choice
-              </Typography.Title>
-
-              <Flex
-                vertical
-                gap='8px'
-                className='question-choice-full-width'
-              >
-                {question.choices?.map((choice, choiceIndex, allChoices) => (
-                  <Flex
-                    key={choiceIndex}
-                    gap='8px'
-                    align='center'
-                    className='question-choice-full-width'
-                  >
-                    <MenuIcon />
-
-                    <Input
-                      name='choice'
-                      value={choice}
-                      placeholder='Type here'
-                      size='large'
-                      onChange={(event) =>
-                        handleChoiceInputChange(event, choiceIndex)
-                      }
-                    />
-
-                    {choiceIndex === allChoices.length - 1 && (
-                      <Button
-                        type='text'
-                        onClick={handleAddChoiceOption}
-                        className='question-choice-plus-button'
-                        size='large'
-                        icon={<PlusIcon />}
-                      />
-                    )}
-                  </Flex>
-                ))}
-              </Flex>
-
-              <Checkbox
-                name='other'
-                checked={question.other}
-                onChange={handleCheckboxChange}
-                className='checkbox-other-style'
-              >
-                Enable “Other” option
-              </Checkbox>
-
-              <ActionButton
-                onDelete={handleDeleteQuestion}
-                onSave={handleSaveQuestion}
-              />
-            </>
+            <DropdownQuestion
+              handleAddChoiceOption={handleAddChoiceOption}
+              handleCheckboxChange={handleCheckboxChange}
+              handleChoiceInputChange={handleChoiceInputChange}
+              handleDeleteQuestion={handleDeleteQuestion}
+              handleInputChange={handleInputChange}
+              handleSaveQuestion={handleSaveQuestion}
+              question={question}
+            />
           )}
 
           {question.type === QuestionType.Video && (
             <>
-              <Typography.Title level={4}>Question</Typography.Title>
-              <Flex
-                vertical
-                gap='20px'
-                className='questiontype-video-container'
-              >
-                <Input
-                  value={question.question}
-                  name='question'
-                  placeholder='Type here'
-                  size='large'
-                  onChange={handleInputChange}
-                />
-
-                <Input
-                  value={question.additionalInfo?.question}
-                  name='question'
-                  placeholder='Type additional information'
-                  size='large'
-                  onChange={(event) => handleInputChange(event, true)}
-                />
-
-                <Row
-                  gutter={8}
-                  className='questiontype-video-row'
-                >
-                  <Col span={16}>
-                    <Input
-                      value={question.additionalInfo?.videoMaxDuration}
-                      name='videoMaxDuration'
-                      placeholder='Max duration of video'
-                      size='large'
-                      type='number'
-                      onChange={(event) => handleInputChange(event, true)}
-                    />
-                  </Col>
-
-                  <Col span={8}>
-                    <Select
-                      className='questiontype-video-select-container'
-                      size='large'
-                      value={question.additionalInfo.videoDurationType}
-                      placeholder='in (sec/min)'
-                      onChange={(value) =>
-                        handleSelectChange('videoDurationType', value, true)
-                      }
-                      options={videoDurationType}
-                    />
-                  </Col>
-                </Row>
-              </Flex>
-
-              <ActionButton
-                onDelete={handleDeleteQuestion}
-                onSave={handleSaveQuestion}
+              <VideoQuestion
+                handleDeleteQuestion={handleDeleteQuestion}
+                handleInputChange={handleInputChange}
+                handleSaveQuestion={handleSaveQuestion}
+                handleSelectChange={handleSelectChange}
+                question={question}
               />
             </>
           )}

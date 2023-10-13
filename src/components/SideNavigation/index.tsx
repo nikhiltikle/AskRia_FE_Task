@@ -1,5 +1,4 @@
 import './index.css';
-
 import type { MenuProps } from 'antd';
 import { Avatar, Menu, Flex } from 'antd';
 import AvatarIcon from '../../icons/AvatarIcon';
@@ -18,7 +17,10 @@ const userItems: MenuProps['items'] = [
   getMenuItem('1', <SettingsIcon />),
   getMenuItem(
     '2',
-    <Avatar size='small' className='user-items-avatar'>
+    <Avatar
+      size='small'
+      className='user-items-avatar'
+    >
       AS
     </Avatar>
   ),
@@ -49,7 +51,11 @@ const SideNavigation = () => {
       justify='space-between'
       className='side-navbar-container-style'
     >
-      <Flex vertical align='center' gap='32px'>
+      <Flex
+        vertical
+        align='center'
+        gap='32px'
+      >
         <AvatarIcon />
         <Menu
           onClick={onClick}
@@ -58,7 +64,10 @@ const SideNavigation = () => {
         />
       </Flex>
 
-      <Flex vertical gap='24px'>
+      <Flex
+        vertical
+        gap='24px'
+      >
         <Menu
           onClick={onClick}
           items={userItems}

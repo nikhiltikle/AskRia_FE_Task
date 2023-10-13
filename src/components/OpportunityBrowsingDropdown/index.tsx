@@ -114,7 +114,7 @@ const menuProps = {
   onClick: handleMenuClick,
 };
 
-const Dropdown: React.FC = () => {
+const OpportunityBrowsingDropdown: React.FC = () => {
   return (
     <AntdDropdown
       menu={menuProps}
@@ -132,4 +132,4 @@ const Dropdown: React.FC = () => {
   );
 };
 
-export default Dropdown;
+export default OpportunityBrowsingDropdown;

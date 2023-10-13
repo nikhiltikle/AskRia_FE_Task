@@ -34,3 +34,11 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.ant-layout .ant-layout-sider {
+  background: var(--bg-white-base);
+}
+
+.layout-container {
+  height: 100%;
+}

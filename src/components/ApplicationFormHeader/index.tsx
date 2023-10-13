@@ -1,5 +1,4 @@
 import './index.css';
-
 import { Steps } from 'antd';
 
 const StepperContent = ({ title }: { title: string }) => {

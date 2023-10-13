@@ -10,7 +10,6 @@ import { Fragment } from 'react';
 
 const ProfileInformation = () => {
   const { profile, setProfile } = useApplicationFormContext();
-  console.log({ profile });
 
   const handleInternalChange = (
     event: CheckboxChangeEvent,

@@ -1,6 +1,6 @@
+import './index.css';
 import { Layout, theme } from 'antd';
 import ApplicationForm from '../../components/ApplicationForm';
-import './index.css';
 import ApplicationFormHeader from '../../components/ApplicationFormHeader';
 import { ApplicationFormProvider } from '../../context/applicationForm';
 

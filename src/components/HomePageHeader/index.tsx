@@ -1,7 +1,7 @@
 import './index.css';
 
 import { Button, Col, Divider, Flex, Row, Typography } from 'antd';
-import OpportunityDropDown from '../Dropdown';
+import OpportunityDropDown from '../OpportunityBrowsingDropdown';
 import VideoCallMenuItem from '../VideoCallMenuItem';
 import CpIcon from '../../icons/CpIcon';
 import UserIcon from '../../icons/UserIcon';
@@ -36,8 +36,14 @@ const HomePageHeader = () => {
   return (
     <Row gutter={32}>
       <Col span={7}>
-        <Flex vertical gap='8px'>
-          <Typography.Title className='home-page-header-title' level={4}>
+        <Flex
+          vertical
+          gap='8px'
+        >
+          <Typography.Title
+            className='home-page-header-title'
+            level={4}
+          >
             London Internship Program
           </Typography.Title>
 
@@ -46,18 +52,34 @@ const HomePageHeader = () => {
       </Col>
 
       <Col span={17}>
-        <Flex gap='middle' justify='space-between'>
+        <Flex
+          gap='middle'
+          justify='space-between'
+        >
           <OpportunityDropDown />
 
           <Flex align='center'>
-            <Flex id='cta-button' gap='8px' align='center'>
+            <Flex
+              id='cta-button'
+              gap='8px'
+              align='center'
+            >
               {ctaButtons.map((button) => {
                 const Icon = button.icon;
-                return <Button key={button.id} size='large' icon={<Icon />} />;
+                return (
+                  <Button
+                    key={button.id}
+                    size='large'
+                    icon={<Icon />}
+                  />
+                );
               })}
             </Flex>
 
-            <Divider type='vertical' className='divider' />
+            <Divider
+              type='vertical'
+              className='divider'
+            />
             <VideoCallMenuItem />
           </Flex>
         </Flex>
