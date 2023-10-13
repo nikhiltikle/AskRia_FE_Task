@@ -2,6 +2,7 @@ import { Layout, theme } from 'antd';
 import ApplicationForm from '../../components/ApplicationForm';
 import './index.css';
 import ApplicationFormHeader from '../../components/ApplicationFormHeader';
+import { ApplicationFormProvider } from '../../context/applicationForm';
 
 const { Content } = Layout;
 
@@ -11,19 +12,21 @@ const TaskOne = () => {
   } = theme.useToken();
 
   return (
-    <Layout>
-      <Content
-        className='task-one-layout-content'
-        style={{
-          background: colorBgContainer,
-        }}
-      >
-        <div className='appliaction-form-container'>
-          <ApplicationFormHeader />
-        </div>
-        <ApplicationForm />
-      </Content>
-    </Layout>
+    <ApplicationFormProvider>
+      <Layout>
+        <Content
+          className='task-one-layout-content'
+          style={{
+            background: colorBgContainer,
+          }}
+        >
+          <div className='appliaction-form-container'>
+            <ApplicationFormHeader />
+          </div>
+          <ApplicationForm />
+        </Content>
+      </Layout>
+    </ApplicationFormProvider>
   );
 };
 
