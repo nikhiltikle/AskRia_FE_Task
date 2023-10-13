@@ -20,9 +20,22 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  useEffect(() => {}, []);
+
+  const setAppHeight = () => {
+    // Save app height in CSS variable
+    document.documentElement.style.setProperty(
+      '--app-height',
+      `${window.innerHeight}px`
+    );
+  };
+
   useEffect(() => {
-    // We can use resize DOM api to update app height on resizing screen
-    document.documentElement.style.cssText = `--app-height: ${window.innerHeight}px`;
+    setAppHeight();
+
+    window.addEventListener('resize', setAppHeight);
+
+    return () => window.removeEventListener('resize', setAppHeight);
   }, []);
 
   return (
