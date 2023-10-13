@@ -1,29 +1,67 @@
 import './index.css';
 
-import { Flex, Typography, Upload } from 'antd';
+import { Button, Flex, Typography, Upload } from 'antd';
 import Card from '../Card';
 import UploadIcon from '../../assets/icons/upload.svg';
+import CrossIcon from '../../icons/Cross';
+import {
+  RcFile,
+  UploadChangeParam,
+  UploadFile,
+  UploadProps,
+} from 'antd/es/upload';
+import { getBase64 } from '../../utils/helper';
 
 interface FormProps {
   label: string;
   value?: string;
+  onDelete?: () => void;
+  onLoadImage: (url: string) => void;
 }
 
-const ImageUpload: React.FC<FormProps> = ({ label, value }) => {
+const ImageUpload: React.FC<FormProps> = ({
+  label,
+  value,
+  onDelete,
+  onLoadImage,
+}) => {
+  const handleChange: UploadProps['onChange'] = (
+    info: UploadChangeParam<UploadFile>
+  ) => {
+    getBase64(info.file as RcFile, (url) => {
+      onLoadImage(url);
+    });
+  };
+
   return (
     <div id='image-upload'>
       <Card title={label}>
-        <Upload
-          name='avatar'
-          listType='picture-card'
-          showUploadList={false}
-          action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
-          // beforeUpload={beforeUpload}
-          // onChange={handleChange}
-        >
-          {value ? (
-            <img src={value} alt={label} className='image-upload-styles' />
-          ) : (
+        {value ? (
+          <>
+            <img
+              src={value}
+              alt={label}
+              className='image-preview'
+            />
+            <div className='image-preview-action'>
+              <Button
+                icon={<CrossIcon />}
+                type='text'
+                onClick={onDelete}
+                className='action-button-delete-style'
+              >
+                Delete & re-upload
+              </Button>
+            </div>
+          </>
+        ) : (
+          <Upload
+            name='avatar'
+            listType='picture-card'
+            showUploadList={false}
+            beforeUpload={() => false}
+            onChange={handleChange}
+          >
             <Flex
               vertical
               gap='6px'
@@ -31,7 +69,10 @@ const ImageUpload: React.FC<FormProps> = ({ label, value }) => {
               justify='center'
               align='center'
             >
-              <img src={UploadIcon} alt='upload file' />
+              <img
+                src={UploadIcon}
+                alt='upload file'
+              />
               <Typography className='image-upload-text'>
                 Upload cover image
               </Typography>
@@ -39,8 +80,8 @@ const ImageUpload: React.FC<FormProps> = ({ label, value }) => {
                 16:9 ratio is recommended. Max image size 1mb
               </Typography>
             </Flex>
-          )}
-        </Upload>
+          </Upload>
+        )}
       </Card>
     </div>
   );

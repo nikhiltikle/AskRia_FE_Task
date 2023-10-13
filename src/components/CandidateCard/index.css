@@ -32,6 +32,7 @@
 .candidate-placement-tag {
   height: 16px;
   border-radius: 16px;
+  line-height: 8px;
 }
 .candidate-placement-tag-text {
   color: var(--foreground-cayan);
