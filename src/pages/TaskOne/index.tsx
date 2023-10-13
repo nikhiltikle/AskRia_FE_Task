@@ -1,6 +1,7 @@
 import { Layout, theme } from 'antd';
 import ApplicationForm from '../../components/ApplicationForm';
 import './index.css';
+import ApplicationFormHeader from '../../components/ApplicationFormHeader';
 
 const { Content } = Layout;
 
@@ -17,6 +18,7 @@ const TaskOne = () => {
           background: colorBgContainer,
         }}
       >
+        <ApplicationFormHeader />
         <ApplicationForm />
       </Content>
     </Layout>

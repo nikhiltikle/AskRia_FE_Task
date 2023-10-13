@@ -8,18 +8,10 @@ import HomePageHeader from '../../components/HomePageHeader';
 
 export default function TaskTwo() {
   return (
-    <Content
-      style={{
-        padding: '32px 36px 32px 32px',
-        backgroundColor: 'var(--bg-blue-light50)',
-      }}
-    >
+    <Content className='tasktwo-layout-container'>
       <HomePageHeader />
 
-      <Row
-        gutter={32}
-        style={{ paddingTop: '32px' }}
-      >
+      <Row gutter={32} style={{ paddingTop: '32px' }}>
         <Col span={7}>
           <HomePageFilter />
         </Col>

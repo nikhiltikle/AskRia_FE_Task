@@ -13,5 +13,15 @@
 }
 
 .image-upload-text {
+  font-size: 14px;
   font-weight: bold;
+  font-weight: 600;
+  line-height: 159.5%;
+}
+
+.image-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 159.5%;
+  color: var(--foreground-grey-100);
 }

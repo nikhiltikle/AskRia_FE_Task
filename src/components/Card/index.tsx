@@ -10,10 +10,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, children }) => {
   return (
-    <AntdCard
-      id='form-card'
-      title={title}
-    >
+    <AntdCard id='form-card' title={title}>
       {children}
     </AntdCard>
   );

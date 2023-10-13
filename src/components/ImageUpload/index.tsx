@@ -35,7 +35,7 @@ const ImageUpload: React.FC<FormProps> = ({ label, value }) => {
               <Typography className='image-upload-text'>
                 Upload cover image
               </Typography>
-              <Typography>
+              <Typography className='image-text'>
                 16:9 ratio is recommended. Max image size 1mb
               </Typography>
             </Flex>

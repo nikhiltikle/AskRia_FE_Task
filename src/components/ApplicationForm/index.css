@@ -1,3 +1,4 @@
 .application-form-container {
-  width: 600px;
+  max-width: 600px;
+  padding-left: 70px;
 }
