@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Askria Frontend Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project offers you the ability to create a application form template and a static homepage UI. You can see a live demo [here](https://delightful-mooncake-de4c1e.netlify.app/tasktwo) of homepage UI.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+1. `React.Js`(18.2.0)
+2. `Typescript`(4.9.5)
+3. `React-router-dom`(6.16.0)
+4. `uuid`
+5. `Antd`
+6. `Stoplight prism` for mock API
+7. `Context API` for state management
 
-### `npm start`
+## Requirement to run an application on local
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. You must have installed Node Package Manager (NPM) on your machine
+2. Create a `.env` file in the root directory of an application
+3. Copy content from `.env.example` file and paste it into `.env` file
+4. Assign `PUT` and `GET` API URL in env variable in `.env` file
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Steps to start an application on local
 
-### `npm test`
+1. Move into the root directory of an application
+2. Run `npm run run:prism` (You will get API URLs after running this script)
+3. Run `npm install`
+4. Run `npm start`. This will run an application on a local server. You can open this by opening or clicking [http://localhost:3000/](http://localhost:3000/) in your browser
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features we added
 
-### `npm run build`
+1. User can create application form template with multiple options.
+2. A static homepage UI (You can see this UI by opening or clicking for localhost [http://localhost:3000/tasktwo](http://localhost:3000/tasktwo) for live demo [https://delightful-mooncake-de4c1e.netlify.app/tasktwo](https://delightful-mooncake-de4c1e.netlify.app/tasktwo)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Limitations
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Currently, we don't have validations in application form
+2. We have UI only for laptop screens
+3. We are using mock API
