@@ -1,3 +1,4 @@
+import { RcFile } from 'antd/es/upload';
 import { MenuItem } from '../interfaces/global';
 
 export const getMenuItem = (
@@ -13,3 +14,11 @@ export const getMenuItem = (
   label,
   type,
 });
+
+export const getBase64 = (img: RcFile, callback: (url: string) => void) => {
+  const reader = new FileReader();
+  reader.onload = (url) => {
+    callback(url.target?.result as string);
+  };
+  reader.readAsDataURL(img);
+};

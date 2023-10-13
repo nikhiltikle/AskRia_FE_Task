@@ -12,7 +12,7 @@ import AdditionalQuestions from '../AdditionalQuestions';
 interface FormProps {}
 
 const ApplicationForm: React.FC<FormProps> = () => {
-  const { setFormData, coverImage, personalInformation } =
+  const { setFormData, coverImage, personalInformation, setCoverImage } =
     useApplicationFormContext();
   console.log({ coverImage, personalInformation });
 
@@ -35,6 +35,14 @@ const ApplicationForm: React.FC<FormProps> = () => {
     fetchApplicationFormData();
   }, []);
 
+  const handleDeleteCoverImage = () => {
+    setCoverImage('');
+  };
+
+  const handleSaveImage = (url: string) => {
+    setCoverImage(url);
+  };
+
   return (
     <Flex
       vertical
@@ -44,6 +52,8 @@ const ApplicationForm: React.FC<FormProps> = () => {
       <ImageUpload
         label='Upload cover image'
         value={coverImage}
+        onDelete={handleDeleteCoverImage}
+        onLoadImage={handleSaveImage}
       />
       <PersonalInformation />
       <ProfileInformation />
