@@ -13,7 +13,7 @@
 }
 
 .candidate-card-divider {
-  margin: 4px !important;
+  margin: 4px;
 }
 
 .candidate-content-container {
@@ -31,7 +31,7 @@
   border: none;
   display: flex;
   align-items: center;
-  color: var(--foreground-blue-dark) !important;
+  color: var(--foreground-blue-dark);
   height: 23px;
   border-radius: 16px;
   font-size: 10px;
@@ -47,7 +47,6 @@
 .candidate-card-buttons-container svg {
   height: 14px;
   width: 14px;
-  stroke: var(--foreground-blue-dark) !important;
 }
 
 .checkbox-candidate-card-container {

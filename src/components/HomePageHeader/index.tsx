@@ -37,14 +37,11 @@ const HomePageHeader = () => {
     <Row gutter={32}>
       <Col span={7}>
         <Flex vertical gap='8px'>
-          <Typography.Title
-            level={4}
-            style={{ margin: 0, color: 'var(--foreground-blue-dark)' }}
-          >
+          <Typography.Title className='home-page-header-title' level={4}>
             London Internship Program
           </Typography.Title>
 
-          <Typography style={{ fontSize: '12px' }}>London</Typography>
+          <Typography className='home-page-header-subtitle'>London</Typography>
         </Flex>
       </Col>
 
@@ -60,7 +57,7 @@ const HomePageHeader = () => {
               })}
             </Flex>
 
-            <Divider type='vertical' style={{ height: '24px' }} />
+            <Divider type='vertical' className='divider' />
             <VideoCallMenuItem />
           </Flex>
         </Flex>

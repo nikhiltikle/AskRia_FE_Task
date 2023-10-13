@@ -64,3 +64,10 @@
 .ant-dropdown .tag-text {
   border-radius: 16px;
 }
+
+.dropdown-list-item-tag {
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 16px;
+}

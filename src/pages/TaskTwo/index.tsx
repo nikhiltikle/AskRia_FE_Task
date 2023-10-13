@@ -11,7 +11,7 @@ export default function TaskTwo() {
     <Content className='tasktwo-layout-container'>
       <HomePageHeader />
 
-      <Row gutter={32} style={{ paddingTop: '32px' }}>
+      <Row gutter={32} className='tasktwo-row'>
         <Col span={7}>
           <HomePageFilter />
         </Col>

@@ -11,14 +11,16 @@ const TaskOne = () => {
   } = theme.useToken();
 
   return (
-    <Layout className='task-one-layout-container'>
+    <Layout>
       <Content
         className='task-one-layout-content'
         style={{
           background: colorBgContainer,
         }}
       >
-        <ApplicationFormHeader />
+        <div className='appliaction-form-container'>
+          <ApplicationFormHeader />
+        </div>
         <ApplicationForm />
       </Content>
     </Layout>

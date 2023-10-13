@@ -2,3 +2,16 @@
   border-width: 0.5px;
   border-color: var(--border-grey-50);
 }
+
+.home-page-header-title {
+  margin: 0 !important;
+  color: var(--foreground-blue-dark) !important;
+}
+
+.home-page-header-subtitle {
+  font-size: 12px;
+}
+
+.divider {
+  height: 24px;
+}

@@ -1,3 +1,4 @@
+import './index.css';
 import { Flex, Tag, Typography } from 'antd';
 
 interface DropdownListItemProps {
@@ -7,21 +8,10 @@ interface DropdownListItemProps {
 
 const DropdownListItem = ({ text, count }: DropdownListItemProps) => {
   return (
-    <Flex
-      justify='space-between'
-      align='center'
-    >
+    <Flex justify='space-between' align='center'>
       <Typography>{text}</Typography>
 
-      <Tag
-        style={{
-          padding: '2px 10px',
-          fontSize: '14px',
-          fontWeight: 500,
-          borderRadius: '16px',
-        }}
-        bordered={false}
-      >
+      <Tag className='dropdown-list-item-tag ' bordered={false}>
         {count}
       </Tag>
     </Flex>

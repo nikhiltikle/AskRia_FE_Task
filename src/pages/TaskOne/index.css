@@ -1,7 +1,3 @@
-.task-one-layout-container {
-  padding: 24px !important;
-}
-
 .task-one-layout-content {
   display: flex;
   flex-direction: column;
@@ -10,4 +6,11 @@
   min-height: 280px;
   background: var(--colorBgContainer);
   gap: 113px;
+  padding-top: 123px;
+  padding-bottom: 24px;
+}
+
+.appliaction-form-container {
+  background: var(--bg-white-base);
+  box-shadow: 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
